@@ -1,5 +1,12 @@
 extends Node
 
+enum playerState{
+	idle,walk,attack,hurt,hit_flying,jump,skill
+}
+
+enum direction{
+	up,down,left,right
+}
 
 
 
