@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://script/cody.gd" type="Script" id=1]
 [ext_resource path="res://sprite/player/man_fight2.png" type="Texture" id=2]
@@ -30,6 +30,8 @@
 [ext_resource path="res://sprite/player/man_grap2.png" type="Texture" id=28]
 [ext_resource path="res://sprite/player/man_jump1.png" type="Texture" id=29]
 [ext_resource path="res://sprite/player/man_jump4.png" type="Texture" id=30]
+[ext_resource path="res://scene/playerState.tscn" type="PackedScene" id=31]
+[ext_resource path="res://scene/stateMachine.tscn" type="PackedScene" id=32]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -108,3 +110,8 @@ modulate = Color( 0.796078, 0.113725, 0.113725, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitBox" index="0"]
 shape = SubResource( 3 )
+
+[node name="stateMachine" parent="." index="6" instance=ExtResource( 32 )]
+initialState = NodePath("playerState")
+
+[node name="playerState" parent="stateMachine" index="0" instance=ExtResource( 31 )]
