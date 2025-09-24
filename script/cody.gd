@@ -1,7 +1,7 @@
 extends "res://script/object.gd"
 
 
-
+onready var bodyNode=$body
 
 func _ready():
 	

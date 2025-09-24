@@ -8,11 +8,10 @@ enum direction{
 	up,down,left,right
 }
 
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+#玩家id
+enum PlayId{
+	p1,p2,p3,p4
+}
 
 
 
