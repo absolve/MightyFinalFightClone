@@ -5,9 +5,6 @@
 [node name="object" type="KinematicBody2D"]
 script = ExtResource( 1 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-modulate = Color( 0.976471, 0.639216, 0.639216, 1 )
-
 [node name="body" type="Node2D" parent="."]
 
 [node name="ani" type="AnimatedSprite" parent="body"]
@@ -15,6 +12,9 @@ modulate = Color( 0.976471, 0.639216, 0.639216, 1 )
 [node name="hurtBox" type="Area2D" parent="body"]
 
 [node name="hitBox" type="Area2D" parent="body"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+modulate = Color( 0.976471, 0.639216, 0.639216, 1 )
 
 [node name="player" type="AnimationPlayer" parent="."]
 

@@ -95,6 +95,13 @@ start={
  ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="playerHItBox"
+2d_physics/layer_3="enemy"
+2d_physics/layer_4="enemyHItBox"
+
 [physics]
 
 common/enable_pause_aware_picking=true
