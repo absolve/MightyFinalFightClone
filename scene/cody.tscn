@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://script/cody.gd" type="Script" id=1]
 [ext_resource path="res://sprite/player/Cody_01_13x4.png" type="Texture" id=2]
@@ -94,6 +94,14 @@ region = Rect2( 390, 0, 39, 42 )
 atlas = ExtResource( 2 )
 region = Rect2( 273, 0, 39, 42 )
 
+[sub_resource type="AtlasTexture" id=43]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 84, 39, 42 )
+
+[sub_resource type="AtlasTexture" id=44]
+atlas = ExtResource( 2 )
+region = Rect2( 39, 84, 39, 42 )
+
 [sub_resource type="AtlasTexture" id=20]
 atlas = ExtResource( 2 )
 region = Rect2( 429, 0, 39, 42 )
@@ -105,6 +113,14 @@ region = Rect2( 234, 0, 39, 42 )
 [sub_resource type="AtlasTexture" id=40]
 atlas = ExtResource( 2 )
 region = Rect2( 78, 42, 39, 42 )
+
+[sub_resource type="AtlasTexture" id=45]
+atlas = ExtResource( 2 )
+region = Rect2( 78, 84, 39, 42 )
+
+[sub_resource type="AtlasTexture" id=46]
+atlas = ExtResource( 2 )
+region = Rect2( 117, 84, 39, 42 )
 
 [sub_resource type="AtlasTexture" id=28]
 atlas = ExtResource( 2 )
@@ -172,6 +188,11 @@ animations = [ {
 "name": "fall",
 "speed": 5.0
 }, {
+"frames": [ SubResource( 43 ), SubResource( 44 ) ],
+"loop": true,
+"name": "grap",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 20 ) ],
 "loop": true,
 "name": "hurt",
@@ -185,6 +206,11 @@ animations = [ {
 "frames": [ SubResource( 40 ) ],
 "loop": true,
 "name": "squat",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 45 ), SubResource( 46 ) ],
+"loop": true,
+"name": "throw",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 28 ), SubResource( 29 ) ],
@@ -249,13 +275,17 @@ tracks/1/keys = {
 "values": [ 0, 3 ]
 }
 
+[sub_resource type="AnimationNodeStateMachine" id=41]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=42]
+
 [node name="object" instance=ExtResource( 5 )]
 script = ExtResource( 1 )
 
 [node name="ani" parent="body" index="0"]
 visible = false
 frames = SubResource( 7 )
-animation = "act5"
+animation = "throw"
 
 [node name="hurtBox" parent="body" index="1"]
 visible = false
@@ -277,6 +307,10 @@ shape = SubResource( 6 )
 [node name="player" parent="." index="2"]
 anims/idle = SubResource( 4 )
 anims/walk = SubResource( 5 )
+
+[node name="tree" parent="." index="3"]
+tree_root = SubResource( 41 )
+parameters/playback = SubResource( 42 )
 
 [node name="stateMachine" parent="." index="4" instance=ExtResource( 32 )]
 initialState = NodePath("playerState")

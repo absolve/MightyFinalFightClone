@@ -13,5 +13,8 @@ enum PlayId{
 	p1,p2,p3,p4
 }
 
-
+#对象类型
+enum gameObjType{
+	
+}
 
