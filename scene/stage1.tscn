@@ -1,14 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene format=3 uid="uid://cdlmdn8ogq46r"]
 
-[ext_resource path="res://scene/map.tscn" type="PackedScene" id=1]
-[ext_resource path="res://script/stage1.gd" type="Script" id=2]
-[ext_resource path="res://sprite/bg/Round 1.png" type="Texture" id=3]
+[ext_resource type="PackedScene" path="res://scene/map.tscn" id="1"]
+[ext_resource type="Script" uid="uid://cuxehcqbladok" path="res://script/stage1.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://5roydaqkmhkq" path="res://sprite/bg/Round 1.png" id="3"]
 
-[node name="stage1" instance=ExtResource( 1 )]
-script = ExtResource( 2 )
+[node name="stage1" unique_id=133701511 instance=ExtResource("1")]
+script = ExtResource("2")
 
 [node name="bg" parent="." index="0"]
-visible = false
-scale = Vector2( 3, 3 )
-texture = ExtResource( 3 )
+scale = Vector2(3, 3)
+texture = ExtResource("3")
 centered = false

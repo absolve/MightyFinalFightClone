@@ -17,4 +17,3 @@ enum PlayId{
 enum gameObjType{
 	
 }
-

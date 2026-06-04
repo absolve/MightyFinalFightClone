@@ -2,11 +2,11 @@ extends Node
 
 class_name stateMachine
 
-export(NodePath) var initialState
-export var enableProcess=false
-export var enablePhysicsProcess=true
+@export var initialState: NodePath
+@export var enableProcess=false
+@export var enablePhysicsProcess=true
 
-onready var currState:state = get_node(initialState)
+@onready var currState:state = get_node(initialState)
 
 func _ready():
 	set_process(enableProcess)

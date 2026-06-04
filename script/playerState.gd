@@ -6,11 +6,11 @@ var player
 
 func _ready():
 	print(owner)
-	yield(owner,"ready")
+	await owner.ready
 	player=owner
 	
 	
-func enter(previous_state_path: String, data := {}) -> void:
+func enter(_previous_state_path: String, _data := {}) -> void:
 	
 	pass
 
@@ -45,9 +45,10 @@ func physics_update(_delta: float) -> void:
 			player.inAir=false
 			player.bodyNode.position.y=0
 		
-	player.move_and_slide(player.vec)
+	player.set_velocity(player.vec)
+	player.move_and_slide()
+	#player.velocity
 	
 func animation():
 	
 	pass
-

@@ -4,7 +4,7 @@ extends Area2D
 var type
 
 
-onready var ani=$ani
+@onready var ani=$ani
 
 
 func _ready():

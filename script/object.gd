@@ -1,6 +1,6 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
-export var hp=0   #血量
+@export var hp=0   #血量
 var invincible=false #是否无敌
 var state=null  #状态
 var zPos=0  #z轴
@@ -14,9 +14,9 @@ var zVec=0 #z轴速度
 var keyMapPrefix='p1' #按键前缀 标记那个玩家
 var playerId=null
 
-onready var bodyNode=$body
-onready var playerNode=$player
-onready var treeNode=$tree
+@onready var bodyNode=$body
+@onready var playerNode=$player
+@onready var treeNode=$tree
 
 func _ready():
 	if playerId==Game.PlayId.p1:
