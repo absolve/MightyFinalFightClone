@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://0aw4kff27vxt"]
 
-[ext_resource type="Script" uid="uid://cctj3o82cy8y0" path="res://script/welcome.gd" id="1"]
+[ext_resource type="Script" uid="uid://cknbfu3na2r1p" path="res://script/welcome.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://n38cjt5ul10c" path="res://sprite/.png" id="2"]
 [ext_resource type="FontFile" path="res://font/title.tres" id="3"]
 

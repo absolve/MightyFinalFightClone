@@ -1,10 +1,23 @@
 [gd_scene format=3 uid="uid://c0r62yk26c317"]
 
-[ext_resource type="Script" uid="uid://5xf448715k3r" path="res://script/cody.gd" id="1"]
+[ext_resource type="Script" uid="uid://cnfff7e7ynsea" path="res://script/cody.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://wfpd2s7m58k1" path="res://sprite/player/Cody_01_13x4.png" id="2"]
+[ext_resource type="Script" uid="uid://v51hjiuhcw8" path="res://script/combo_def.gd" id="3_csu43"]
 [ext_resource type="PackedScene" path="res://scene/object.tscn" id="5"]
-[ext_resource type="PackedScene" uid="uid://bexh8qlhyv8bp" path="res://scene/playerState.tscn" id="31"]
 [ext_resource type="PackedScene" path="res://scene/stateMachine.tscn" id="32"]
+[ext_resource type="Script" uid="uid://2j2jbf07a5y6" path="res://script/states/idle_state.gd" id="33"]
+[ext_resource type="Script" uid="uid://bhchmfalnn0mu" path="res://script/states/walk_state.gd" id="34"]
+[ext_resource type="Script" uid="uid://7x1e14lhkpgq" path="res://script/states/jump_state.gd" id="35"]
+[ext_resource type="Script" uid="uid://jduowvg5qr0i" path="res://script/states/attack_state.gd" id="36"]
+[ext_resource type="Script" uid="uid://30ggmyt6s3cr" path="res://script/states/skill_state.gd" id="37"]
+[ext_resource type="Script" uid="uid://bw57f43npv0i8" path="res://script/states/hurt_state.gd" id="38"]
+[ext_resource type="Resource" path="res://data/combos/cody/skill1_left.tres" id="40"]
+[ext_resource type="Resource" path="res://data/combos/cody/skill1_right.tres" id="41"]
+[ext_resource type="Resource" path="res://data/combos/cody/skill2_leftright.tres" id="42"]
+[ext_resource type="Resource" path="res://data/combos/cody/skill2_rightleft.tres" id="43"]
+[ext_resource type="Resource" path="res://data/combos/cody/skill3.tres" id="44"]
+[ext_resource type="AnimationLibrary" path="res://data/anims/cody_library.tres" id="77"]
+[ext_resource type="AnimationNodeStateMachine" path="res://data/anims/cody_state_machine.tres" id="78"]
 
 [sub_resource type="AtlasTexture" id="21"]
 atlas = ExtResource("2")
@@ -146,6 +159,126 @@ region = Rect2(156, 0, 39, 42)
 atlas = ExtResource("2")
 region = Rect2(195, 0, 39, 42)
 
+[sub_resource type="AtlasTexture" id="47"]
+atlas = ExtResource("2")
+region = Rect2(468, 0, 39, 42)
+
+[sub_resource type="AtlasTexture" id="48"]
+atlas = ExtResource("2")
+region = Rect2(39, 168, 39, 42)
+
+[sub_resource type="AtlasTexture" id="49"]
+atlas = ExtResource("2")
+region = Rect2(78, 168, 39, 42)
+
+[sub_resource type="AtlasTexture" id="50"]
+atlas = ExtResource("2")
+region = Rect2(117, 168, 39, 42)
+
+[sub_resource type="AtlasTexture" id="51"]
+atlas = ExtResource("2")
+region = Rect2(156, 168, 39, 42)
+
+[sub_resource type="AtlasTexture" id="52"]
+atlas = ExtResource("2")
+region = Rect2(195, 168, 39, 42)
+
+[sub_resource type="AtlasTexture" id="53"]
+atlas = ExtResource("2")
+region = Rect2(234, 168, 39, 42)
+
+[sub_resource type="AtlasTexture" id="54"]
+atlas = ExtResource("2")
+region = Rect2(273, 168, 39, 42)
+
+[sub_resource type="AtlasTexture" id="55"]
+atlas = ExtResource("2")
+region = Rect2(312, 168, 39, 42)
+
+[sub_resource type="AtlasTexture" id="56"]
+atlas = ExtResource("2")
+region = Rect2(351, 168, 39, 42)
+
+[sub_resource type="AtlasTexture" id="57"]
+atlas = ExtResource("2")
+region = Rect2(390, 168, 39, 42)
+
+[sub_resource type="AtlasTexture" id="58"]
+atlas = ExtResource("2")
+region = Rect2(429, 168, 39, 42)
+
+[sub_resource type="AtlasTexture" id="59"]
+atlas = ExtResource("2")
+region = Rect2(468, 168, 39, 42)
+
+[sub_resource type="AtlasTexture" id="60"]
+atlas = ExtResource("2")
+region = Rect2(0, 210, 39, 42)
+
+[sub_resource type="AtlasTexture" id="61"]
+atlas = ExtResource("2")
+region = Rect2(39, 210, 39, 42)
+
+[sub_resource type="AtlasTexture" id="62"]
+atlas = ExtResource("2")
+region = Rect2(78, 210, 39, 42)
+
+[sub_resource type="AtlasTexture" id="63"]
+atlas = ExtResource("2")
+region = Rect2(117, 210, 39, 42)
+
+[sub_resource type="AtlasTexture" id="64"]
+atlas = ExtResource("2")
+region = Rect2(156, 210, 39, 42)
+
+[sub_resource type="AtlasTexture" id="65"]
+atlas = ExtResource("2")
+region = Rect2(195, 210, 39, 42)
+
+[sub_resource type="AtlasTexture" id="66"]
+atlas = ExtResource("2")
+region = Rect2(234, 210, 39, 42)
+
+[sub_resource type="AtlasTexture" id="67"]
+atlas = ExtResource("2")
+region = Rect2(273, 210, 39, 42)
+
+[sub_resource type="AtlasTexture" id="68"]
+atlas = ExtResource("2")
+region = Rect2(312, 210, 39, 42)
+
+[sub_resource type="AtlasTexture" id="69"]
+atlas = ExtResource("2")
+region = Rect2(351, 210, 39, 42)
+
+[sub_resource type="AtlasTexture" id="70"]
+atlas = ExtResource("2")
+region = Rect2(390, 210, 39, 42)
+
+[sub_resource type="AtlasTexture" id="71"]
+atlas = ExtResource("2")
+region = Rect2(429, 210, 39, 42)
+
+[sub_resource type="AtlasTexture" id="72"]
+atlas = ExtResource("2")
+region = Rect2(468, 210, 39, 42)
+
+[sub_resource type="AtlasTexture" id="73"]
+atlas = ExtResource("2")
+region = Rect2(0, 252, 39, 42)
+
+[sub_resource type="AtlasTexture" id="74"]
+atlas = ExtResource("2")
+region = Rect2(39, 252, 39, 42)
+
+[sub_resource type="AtlasTexture" id="75"]
+atlas = ExtResource("2")
+region = Rect2(429, 252, 39, 42)
+
+[sub_resource type="AtlasTexture" id="76"]
+atlas = ExtResource("2")
+region = Rect2(468, 252, 39, 42)
+
 [sub_resource type="SpriteFrames" id="7"]
 animations = [{
 "frames": [{
@@ -155,7 +288,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("22")
 }],
-"loop": true,
+"loop": 0,
 "name": &"act1",
 "speed": 5.0
 }, {
@@ -166,7 +299,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("24")
 }],
-"loop": true,
+"loop": 0,
 "name": &"act2",
 "speed": 5.0
 }, {
@@ -180,7 +313,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("27")
 }],
-"loop": true,
+"loop": 0,
 "name": &"act3",
 "speed": 5.0
 }, {
@@ -197,7 +330,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("33")
 }],
-"loop": true,
+"loop": 0,
 "name": &"act4",
 "speed": 5.0
 }, {
@@ -220,7 +353,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("39")
 }],
-"loop": true,
+"loop": 0,
 "name": &"act5",
 "speed": 5.0
 }, {
@@ -228,12 +361,18 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("8")
 }],
-"loop": false,
+"loop": 0,
 "name": &"default",
 "speed": 5.0
 }, {
-"frames": [],
-"loop": true,
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("75")
+}, {
+"duration": 1.0,
+"texture": SubResource("76")
+}],
+"loop": 1,
 "name": &"down",
 "speed": 5.0
 }, {
@@ -250,7 +389,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("19")
 }],
-"loop": true,
+"loop": 1,
 "name": &"fall",
 "speed": 5.0
 }, {
@@ -261,7 +400,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("44")
 }],
-"loop": true,
+"loop": 1,
 "name": &"grap",
 "speed": 5.0
 }, {
@@ -269,7 +408,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("20")
 }],
-"loop": true,
+"loop": 0,
 "name": &"hurt",
 "speed": 5.0
 }, {
@@ -277,7 +416,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("11")
 }],
-"loop": true,
+"loop": 1,
 "name": &"jump",
 "speed": 5.0
 }, {
@@ -285,7 +424,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("40")
 }],
-"loop": true,
+"loop": 1,
 "name": &"squat",
 "speed": 5.0
 }, {
@@ -296,7 +435,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("46")
 }],
-"loop": true,
+"loop": 1,
 "name": &"throw",
 "speed": 5.0
 }, {
@@ -307,7 +446,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("29")
 }],
-"loop": true,
+"loop": 1,
 "name": &"wake",
 "speed": 5.0
 }, {
@@ -324,89 +463,191 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("15")
 }],
-"loop": true,
+"loop": 1,
 "name": &"walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("15")
+}, {
+"duration": 1.0,
+"texture": SubResource("11")
+}, {
+"duration": 1.0,
+"texture": SubResource("15")
+}],
+"loop": 0,
+"name": &"squatAttack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("20")
+}, {
+"duration": 1.0,
+"texture": SubResource("47")
+}],
+"loop": 0,
+"name": &"jumpAttack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("48")
+}, {
+"duration": 1.0,
+"texture": SubResource("49")
+}],
+"loop": 0,
+"name": &"jumpKick",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("50")
+}, {
+"duration": 1.0,
+"texture": SubResource("51")
+}, {
+"duration": 1.0,
+"texture": SubResource("52")
+}, {
+"duration": 1.0,
+"texture": SubResource("53")
+}],
+"loop": 0,
+"name": &"act7",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("54")
+}, {
+"duration": 1.0,
+"texture": SubResource("55")
+}, {
+"duration": 1.0,
+"texture": SubResource("56")
+}, {
+"duration": 1.0,
+"texture": SubResource("57")
+}],
+"loop": 0,
+"name": &"act8",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("58")
+}, {
+"duration": 1.0,
+"texture": SubResource("59")
+}, {
+"duration": 1.0,
+"texture": SubResource("60")
+}, {
+"duration": 1.0,
+"texture": SubResource("61")
+}, {
+"duration": 1.0,
+"texture": SubResource("62")
+}, {
+"duration": 1.0,
+"texture": SubResource("63")
+}],
+"loop": 0,
+"name": &"act9",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("64")
+}, {
+"duration": 1.0,
+"texture": SubResource("65")
+}, {
+"duration": 1.0,
+"texture": SubResource("66")
+}],
+"loop": 0,
+"name": &"act10",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("67")
+}, {
+"duration": 1.0,
+"texture": SubResource("68")
+}, {
+"duration": 1.0,
+"texture": SubResource("69")
+}, {
+"duration": 1.0,
+"texture": SubResource("70")
+}, {
+"duration": 1.0,
+"texture": SubResource("71")
+}, {
+"duration": 1.0,
+"texture": SubResource("72")
+}],
+"loop": 0,
+"name": &"act11",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("73")
+}, {
+"duration": 1.0,
+"texture": SubResource("74")
+}],
+"loop": 0,
+"name": &"act12",
 "speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="9"]
+size = Vector2(26, 40)
 
 [sub_resource type="RectangleShape2D" id="10"]
+size = Vector2(18, 16)
 
 [sub_resource type="RectangleShape2D" id="6"]
 size = Vector2(16, 4)
 
-[sub_resource type="Animation" id="4"]
-resource_name = "idle"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ani:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
-}
-
-[sub_resource type="Animation" id="5"]
-resource_name = "walk"
-length = 0.8
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ani:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ani:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 0,
-"values": []
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_jxqtc"]
-_data = {
-&"idle": SubResource("4"),
-&"walk": SubResource("5")
-}
-
-[sub_resource type="AnimationNodeStateMachine" id="41"]
-
 [node name="object" unique_id=786363822 instance=ExtResource("5")]
 script = ExtResource("1")
+combos = Array[ExtResource("3_csu43")]([ExtResource("40"), ExtResource("41"), ExtResource("42"), ExtResource("43"), ExtResource("44")])
+skillAnims = {
+"skill1": "act5",
+"skill2": "act4",
+"skill3": "act7"
+}
 
 [node name="ani" parent="body" index="0"]
-visible = false
 sprite_frames = SubResource("7")
 animation = &"walk"
 
 [node name="hurtBox" parent="body" index="1"]
 visible = false
+collision_mask = 0
+monitoring = false
 
 [node name="shape" type="CollisionShape2D" parent="body/hurtBox" index="0" unique_id=1715866388]
+position = Vector2(0, -2)
 shape = SubResource("9")
 
 [node name="hitBox" parent="body" index="2"]
 visible = false
+collision_layer = 2
+collision_mask = 4
+monitorable = false
 
 [node name="shape" type="CollisionShape2D" parent="body/hitBox" index="0" unique_id=685255671]
-position = Vector2(33, -9)
+position = Vector2(30, -8)
 shape = SubResource("10")
 
 [node name="CollisionShape2D" parent="." index="1"]
@@ -414,12 +655,29 @@ position = Vector2(0, 13)
 shape = SubResource("6")
 
 [node name="player" parent="." index="2"]
-libraries/ = SubResource("AnimationLibrary_jxqtc")
+libraries = {&"": ExtResource("77")}
 
 [node name="tree" parent="." index="3"]
-tree_root = SubResource("41")
+tree_root = ExtResource("78")
+active = true
 
 [node name="stateMachine" parent="." index="4" unique_id=184804755 instance=ExtResource("32")]
-initialState = NodePath("playerState")
+initialState = NodePath("idleState")
 
-[node name="playerState" parent="stateMachine" index="0" unique_id=1433356779 instance=ExtResource("31")]
+[node name="idleState" type="Node" parent="stateMachine" index="0" unique_id=1028576665]
+script = ExtResource("33")
+
+[node name="walkState" type="Node" parent="stateMachine" index="1" unique_id=2046517047]
+script = ExtResource("34")
+
+[node name="jumpState" type="Node" parent="stateMachine" index="2" unique_id=1912946954]
+script = ExtResource("35")
+
+[node name="attackState" type="Node" parent="stateMachine" index="3" unique_id=290642266]
+script = ExtResource("36")
+
+[node name="skillState" type="Node" parent="stateMachine" index="4" unique_id=697799528]
+script = ExtResource("37")
+
+[node name="hurtState" type="Node" parent="stateMachine" index="5" unique_id=769917289]
+script = ExtResource("38")

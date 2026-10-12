@@ -1,19 +1,31 @@
 extends Node
+## 全局单例：跨场景共享的枚举与通用数据。
 
-enum playerState{
-	idle,walk,attack,hurt,hit_flying,jump,skill
+enum PlayerState {
+	IDLE,
+	WALK,
+	ATTACK,
+	HURT,
+	HIT_FLYING,
+	JUMP,
+	SKILL,
 }
 
-enum direction{
-	up,down,left,right
+enum Direction {
+	UP,
+	DOWN,
+	LEFT,
+	RIGHT,
 }
 
-#玩家id
-enum PlayId{
-	p1,p2,p3,p4
+# 玩家 id，用于输入分桶与按键前缀派生
+enum PlayId {
+	P1,
+	P2,
+	P3,
+	P4,
 }
 
-#对象类型
-enum gameObjType{
-	
+# 对象类型（待填充）
+enum GameObjType {
 }

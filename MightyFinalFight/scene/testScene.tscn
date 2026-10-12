@@ -1,3 +1,12 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="PackedScene" path="res://scene/cody.tscn" id="1"]
 
 [node name="testScene" type="Node2D"]
+
+[node name="codyP1" parent="." instance=ExtResource("1")]
+position = Vector2(240, 240)
+
+[node name="codyP2" parent="." instance=ExtResource("1")]
+position = Vector2(400, 240)
+playerId = 1

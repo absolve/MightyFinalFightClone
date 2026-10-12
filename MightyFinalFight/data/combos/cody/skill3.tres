@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://script/combo_def.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+skillName = "skill3"
+inputs = Array[StringName]([&"up", &"down", &"punch"])
+priority = 2
+timeWindow = 0.5
+damage = 20
