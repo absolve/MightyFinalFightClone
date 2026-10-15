@@ -7,6 +7,8 @@ class_name FightObject
 
 signal hpChanged(currentHp: int)
 
+const DAMAGE_NUMBER_SCENE: PackedScene = preload("res://scene/damage_number.tscn")
+
 @export var hp: int = 100
 @export var maxHp: int = 100
 @export var attack: int = 10
@@ -92,9 +94,19 @@ func takeDamage(amount: int) -> void:
 		return
 	hp = max(hp - amount, 0)
 	hpChanged.emit(hp)
+	spawnDamageNumber(amount)
 	if hp <= 0:
 		return
 	stateMachineNode.transition_to("hurtState")
+
+
+func spawnDamageNumber(amount: int) -> void:
+	if get_parent() == null:
+		return
+	var damageNumber: DamageNumber = DAMAGE_NUMBER_SCENE.instantiate()
+	get_parent().add_child(damageNumber)
+	damageNumber.global_position = global_position + Vector2(randf_range(-8.0, 8.0), -30.0)
+	damageNumber.setup(amount)
 
 
 func onHitBoxAreaEntered(area: Area2D) -> void:

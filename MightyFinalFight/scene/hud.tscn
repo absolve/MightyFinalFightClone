@@ -1,0 +1,103 @@
+[gd_scene load_steps=11 format=3]
+
+[ext_resource type="Script" path="res://script/hud.gd" id="1"]
+[ext_resource type="Script" path="res://script/ui/segment_bar.gd" id="2"]
+[ext_resource type="Texture2D" path="res://sprite/NES - Mighty Final Fight - HUD.png" id="3"]
+[ext_resource type="FontFile" path="res://font/title.tres" id="4"]
+
+[sub_resource type="AtlasTexture" id="playerLabelTex"]
+atlas = ExtResource("3")
+region = Rect2(33, 44, 47, 8)
+
+[sub_resource type="AtlasTexture" id="enemyLabelTex"]
+atlas = ExtResource("3")
+region = Rect2(33, 52, 38, 8)
+
+[sub_resource type="AtlasTexture" id="segmentOnTex"]
+atlas = ExtResource("3")
+region = Rect2(81, 44, 8, 8)
+
+[sub_resource type="AtlasTexture" id="segmentOffTex"]
+atlas = ExtResource("3")
+region = Rect2(89, 44, 8, 8)
+
+[sub_resource type="LabelSettings" id="hudText"]
+font = ExtResource("4")
+font_size = 8
+font_color = Color(1, 1, 1, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="hud" type="CanvasLayer"]
+script = ExtResource("1")
+
+[node name="topBar" type="ColorRect" parent="."]
+anchor_right = 1.0
+offset_bottom = 64.0
+color = Color(0, 0, 0, 1)
+texture_filter = 1
+
+[node name="playerLabel" type="TextureRect" parent="topBar"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 102.0
+offset_bottom = 24.0
+texture = SubResource("playerLabelTex")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="playerBar" type="Node2D" parent="topBar"]
+position = Vector2(110, 8)
+script = ExtResource("2")
+onTexture = SubResource("segmentOnTex")
+offTexture = SubResource("segmentOffTex")
+
+[node name="enemyLabel" type="TextureRect" parent="topBar"]
+visible = false
+offset_left = 8.0
+offset_top = 36.0
+offset_right = 86.0
+offset_bottom = 52.0
+texture = SubResource("enemyLabelTex")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="enemyBar" type="Node2D" parent="topBar"]
+visible = false
+position = Vector2(110, 36)
+script = ExtResource("2")
+onTexture = SubResource("segmentOnTex")
+offTexture = SubResource("segmentOffTex")
+
+[node name="livesLabel" type="Label" parent="topBar"]
+offset_left = 520.0
+offset_top = 8.0
+offset_right = 632.0
+offset_bottom = 24.0
+label_settings = SubResource("hudText")
+horizontal_alignment = 2
+
+[node name="bottomBar" type="ColorRect" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -28.0
+color = Color(0, 0, 0, 1)
+texture_filter = 1
+
+[node name="scoreLabel" type="Label" parent="bottomBar"]
+offset_left = 8.0
+offset_top = 6.0
+offset_right = 208.0
+offset_bottom = 22.0
+label_settings = SubResource("hudText")
+
+[node name="timeLabel" type="Label" parent="bottomBar"]
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -60.0
+offset_top = 6.0
+offset_right = 60.0
+offset_bottom = 22.0
+label_settings = SubResource("hudText")
+horizontal_alignment = 1

@@ -3,6 +3,8 @@
 [ext_resource type="PackedScene" path="res://scene/map.tscn" id="1"]
 [ext_resource type="Script" uid="uid://cuxehcqbladok" path="res://script/stage1.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://5roydaqkmhkq" path="res://sprite/bg/Round 1.png" id="3"]
+[ext_resource type="PackedScene" path="res://scene/cody.tscn" id="4"]
+[ext_resource type="PackedScene" path="res://scene/hud.tscn" id="5"]
 
 [node name="stage1" unique_id=133701511 instance=ExtResource("1")]
 script = ExtResource("2")
@@ -11,3 +13,8 @@ script = ExtResource("2")
 scale = Vector2(3, 3)
 texture = ExtResource("3")
 centered = false
+
+[node name="codyP1" parent="." instance=ExtResource("4")]
+position = Vector2(220, 360)
+
+[node name="hud" parent="." instance=ExtResource("5")]
