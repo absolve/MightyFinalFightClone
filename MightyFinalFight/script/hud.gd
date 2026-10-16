@@ -1,21 +1,17 @@
 extends CanvasLayer
 class_name Hud
-## 游戏内 HUD：玩家/敌人分段血条、命数、分数与倒计时。
+## 游戏内 HUD：玩家/敌人分段血条、命数、等级与经验。
 ##
 ## 玩家血条通过 [method bindPlayer] 绑定 [FightObject] 的 hpChanged 信号实时刷新；
 ## 敌人血条（Boss 战）平时隐藏，[method showEnemyBar] 显示并跟随目标血量，
-## 目标血量归零时自动隐藏。倒计时归零发出 [signal timeOver]。
+## 目标血量归零时自动隐藏。等级/经验仅负责显示，数值规则由后续等级系统提供
+## （原作最高 LV6、特殊攻击 LV4 解锁，见 doc/原作资料.md §3）。
 
-signal timeOver
+@export var level: int = 1
+@export var exp: int = 0
+@export var expToNext: int = 90
 
-const TIME_LIMIT: int = 99
-
-@export var timeLimit: int = TIME_LIMIT
-
-var score: int = 0
 var lives: int = 2
-var timeLeft: int = TIME_LIMIT
-var timeAcc: float = 0.0
 var playerTarget: FightObject
 var enemyTarget: FightObject
 
@@ -23,16 +19,14 @@ var enemyTarget: FightObject
 @onready var enemyBar: SegmentBar = $topBar/enemyBar
 @onready var enemyLabel: TextureRect = $topBar/enemyLabel
 @onready var livesLabel: Label = $topBar/livesLabel
-@onready var scoreLabel: Label = $bottomBar/scoreLabel
-@onready var timeLabel: Label = $bottomBar/timeLabel
+@onready var levelLabel: Label = $bottomBar/levelLabel
+@onready var expLabel: Label = $bottomBar/expLabel
 
 
 func _ready() -> void:
-	setScore(0)
 	setLives(lives)
-	timeLeft = timeLimit
-	timeAcc = 0.0
-	updateTimeLabel()
+	setLevel(level)
+	setExp(exp, expToNext)
 	updateEnemyBarVisible()
 
 
@@ -54,18 +48,20 @@ func hideEnemyBar() -> void:
 	updateEnemyBarVisible()
 
 
-func addScore(points: int) -> void:
-	setScore(score + points)
-
-
-func setScore(value: int) -> void:
-	score = value
-	scoreLabel.text = "SCORE %07d" % score
-
-
 func setLives(value: int) -> void:
 	lives = value
 	livesLabel.text = "PL ×%d" % lives
+
+
+func setLevel(value: int) -> void:
+	level = value
+	levelLabel.text = "LEVEL %d" % level
+
+
+func setExp(current: int, needed: int) -> void:
+	exp = current
+	expToNext = needed
+	expLabel.text = "EXP %03d/%03d" % [exp, expToNext]
 
 
 func onPlayerHpChanged(currentHp: int) -> void:
@@ -86,19 +82,3 @@ func updateEnemyBarVisible() -> void:
 	var showEnemy: bool = enemyTarget != null
 	enemyBar.visible = showEnemy
 	enemyLabel.visible = showEnemy
-
-
-func updateTimeLabel() -> void:
-	timeLabel.text = "TIME %02d" % timeLeft
-
-
-func _process(delta: float) -> void:
-	if timeLeft <= 0:
-		return
-	timeAcc += delta
-	if timeAcc >= 1.0:
-		timeAcc -= 1.0
-		timeLeft -= 1
-		updateTimeLabel()
-		if timeLeft <= 0:
-			timeOver.emit()

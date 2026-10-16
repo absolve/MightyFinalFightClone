@@ -85,14 +85,14 @@ offset_top = -28.0
 color = Color(0, 0, 0, 1)
 texture_filter = 1
 
-[node name="scoreLabel" type="Label" parent="bottomBar"]
+[node name="levelLabel" type="Label" parent="bottomBar"]
 offset_left = 8.0
 offset_top = 6.0
 offset_right = 208.0
 offset_bottom = 22.0
 label_settings = SubResource("hudText")
 
-[node name="timeLabel" type="Label" parent="bottomBar"]
+[node name="expLabel" type="Label" parent="bottomBar"]
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -60.0
