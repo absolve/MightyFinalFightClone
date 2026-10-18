@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" path="res://scene/cody.tscn" id="1"]
 
 [node name="testScene" type="Node2D"]
+y_sort_enabled = true
 
 [node name="codyP1" parent="." instance=ExtResource("1")]
 position = Vector2(240, 240)
