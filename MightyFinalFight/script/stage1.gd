@@ -6,4 +6,5 @@ extends "res://script/map.gd"
 
 
 func _ready() -> void:
+	super._ready()
 	hud.bindPlayer(codyP1)

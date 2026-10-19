@@ -1,20 +1,16 @@
 extends PlayerState
 class_name WalkState
-## 行走状态：四向移动，播放 walk 动画；可接跳跃与出拳。
+## 行走状态：四向移动（上下方向按纵深系数减速），受关卡可活动范围限制；
+## 可接跳跃与出拳。
 
 func physics_update(delta: float) -> void:
-	var inputVec: Vector2 = Input.get_vector(
-			"%s_left" % obj.keyMapPrefix,
-			"%s_right" % obj.keyMapPrefix,
-			"%s_up" % obj.keyMapPrefix,
-			"%s_down" % obj.keyMapPrefix)
-	if inputVec == Vector2.ZERO:
+	var inputDir: Vector2 = obj.getMoveInput()
+	if inputDir == Vector2.ZERO:
 		stateMachineNode.transition_to("idleState")
 		return
-	obj.setFaceDir(inputVec.x)
-	obj.vec = inputVec * obj.speed
+	obj.setFaceDir(inputDir.x)
 	obj.playAnim("walk")
-	obj.moveSelf()
+	obj.moveByInput()
 
 
 func exit() -> void:
@@ -22,7 +18,6 @@ func exit() -> void:
 
 
 func handle_input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("%s_jump" % obj.keyMapPrefix):
-		stateMachineNode.transition_to("jumpState")
+	if tryJump():
 		return
 	tryPunchCombo()

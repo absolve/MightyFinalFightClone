@@ -7,7 +7,9 @@
 [ext_resource type="PackedScene" path="res://scene/hud.tscn" id="5"]
 
 [node name="stage1" unique_id=133701511 instance=ExtResource("1")]
+y_sort_enabled = true
 script = ExtResource("2")
+playBounds = Rect2(20, 340, 600, 110)
 
 [node name="bg" parent="." index="0"]
 scale = Vector2(3, 3)
