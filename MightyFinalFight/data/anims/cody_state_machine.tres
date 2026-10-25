@@ -1,4 +1,4 @@
-[gd_resource type="AnimationNodeStateMachine" format=3]
+[gd_resource type="AnimationNodeStateMachine" format=3 uid="uid://da0fubhmcmws5"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h32e2"]
 animation = &"act1"
@@ -121,3 +121,4 @@ states/wake/node = SubResource("AnimationNodeAnimation_06vig")
 states/wake/position = Vector2(800, 300)
 states/walk/node = SubResource("AnimationNodeAnimation_6m3er")
 states/walk/position = Vector2(1000, 300)
+graph_offset = Vector2(-156.47485, -80.23802)
