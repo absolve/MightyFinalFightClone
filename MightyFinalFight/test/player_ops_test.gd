@@ -10,8 +10,9 @@ extends Node
 ## - 关卡边界：移动被 playBounds 钳制
 ## - 跳跃：起跳、上升 jump / 下落 fall 片段、落地回待机
 ## - 空中攻击：拳=jumpAttack、下+拳=jumpKick，每次跳跃仅一次
+##   （jumpKick 贴图缺失时按状态机兜底走 jumpAttack）
 ## - 地面三段连击：可取消窗口递进，第 4 拳不再连
-## - 蹲击：下+拳
+## - 蹲击：下+拳（squatAttack 贴图缺失时按状态机兜底走 act1）
 ## - 走打与搓招的区分：按住方向出拳=普通攻击，原地出拳才查搓招表
 ## - 攻击框随朝向翻转
 ## - 受击：击退、转向、无敌、回待机；空中受击落地不悬空
@@ -160,7 +161,7 @@ func testAirAttack() -> void:
 	await frames(1)
 	release("p1_punch")
 	await frames(1)
-	check(curAnim(p) != &"jumpKick", "空中攻击每跳仅一次，不会改成跳踢")
+	check(curAnim(p) == &"jumpAttack", "空中第二次按拳不换片段（每跳仅一次）")
 	await despawn(p)
 
 	# 下+拳 = 跳踢
@@ -173,7 +174,9 @@ func testAirAttack() -> void:
 	press("p1_punch")
 	await frames(1)
 	release("p1_punch")
-	check(curAnim(p) == &"jumpKick", "空中下+拳播放 jumpKick")
+	# 下+拳 = 跳踢（jumpKick 贴图缺失时按 jump_state 的兜底走 jumpAttack）
+	var kick_anim: StringName = &"jumpKick" if p.hasAnim(&"jumpKick") else &"jumpAttack"
+	check(curAnim(p) == kick_anim, "空中下+拳播放跳踢片段")
 	await despawn(p)
 
 
@@ -204,7 +207,9 @@ func testSquatAttack() -> void:
 	press("p1_down")
 	await frames(2)
 	await tap("p1_punch")
-	check(curAnim(p) == &"squatAttack", "下+拳播放 squatAttack 蹲击")
+	# squatAttack 贴图缺失时按 attack_state 的兜底走 act1
+	var squat_anim: StringName = &"squatAttack" if p.hasAnim(&"squatAttack") else &"act1"
+	check(curAnim(p) == squat_anim, "下+拳播放蹲击片段")
 	release("p1_down")
 	await frames(20)
 	check(p.stateMachineNode.currState is IdleState, "蹲击结束回到 idleState")

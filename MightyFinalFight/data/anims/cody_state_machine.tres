@@ -4,121 +4,96 @@
 animation = &"act1"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_e2klq"]
-animation = &"act10"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nrq2v"]
-animation = &"act11"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5ughe"]
-animation = &"act12"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_500fo"]
 animation = &"act2"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_36bfw"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nrq2v"]
 animation = &"act3"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uyrcg"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5ughe"]
 animation = &"act4"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dmmka"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_500fo"]
 animation = &"act5"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gpleq"]
-animation = &"act7"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fw2iv"]
-animation = &"act8"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jjt1c"]
-animation = &"act9"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cxkh6"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_36bfw"]
 animation = &"default"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nayba"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uyrcg"]
 animation = &"down"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cx4g0"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dmmka"]
+animation = &"down2"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gpleq"]
 animation = &"fall"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_o5iuh"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fw2iv"]
 animation = &"grap"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jp1pj"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jjt1c"]
 animation = &"hurt"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rpbeb"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cxkh6"]
 animation = &"jump"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_48wnx"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nayba"]
 animation = &"jumpAttack"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cpoul"]
-animation = &"jumpKick"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cx4g0"]
+animation = &"knockAway"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_07vha"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_o5iuh"]
 animation = &"squat"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sgsqu"]
-animation = &"squatAttack"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6e3hy"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jp1pj"]
 animation = &"throw"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_06vig"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rpbeb"]
+animation = &"tumbleDown"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_48wnx"]
 animation = &"wake"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6m3er"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cpoul"]
 animation = &"walk"
 
 [resource]
 states/act1/node = SubResource("AnimationNodeAnimation_h32e2")
 states/act1/position = Vector2(0, 0)
-states/act10/node = SubResource("AnimationNodeAnimation_e2klq")
-states/act10/position = Vector2(200, 0)
-states/act11/node = SubResource("AnimationNodeAnimation_nrq2v")
-states/act11/position = Vector2(400, 0)
-states/act12/node = SubResource("AnimationNodeAnimation_5ughe")
-states/act12/position = Vector2(600, 0)
-states/act2/node = SubResource("AnimationNodeAnimation_500fo")
-states/act2/position = Vector2(800, 0)
-states/act3/node = SubResource("AnimationNodeAnimation_36bfw")
-states/act3/position = Vector2(1000, 0)
-states/act4/node = SubResource("AnimationNodeAnimation_uyrcg")
-states/act4/position = Vector2(0, 100)
-states/act5/node = SubResource("AnimationNodeAnimation_dmmka")
-states/act5/position = Vector2(200, 100)
-states/act7/node = SubResource("AnimationNodeAnimation_gpleq")
-states/act7/position = Vector2(400, 100)
-states/act8/node = SubResource("AnimationNodeAnimation_fw2iv")
-states/act8/position = Vector2(600, 100)
-states/act9/node = SubResource("AnimationNodeAnimation_jjt1c")
-states/act9/position = Vector2(800, 100)
-states/default/node = SubResource("AnimationNodeAnimation_cxkh6")
-states/default/position = Vector2(1000, 100)
-states/down/node = SubResource("AnimationNodeAnimation_nayba")
-states/down/position = Vector2(0, 200)
-states/fall/node = SubResource("AnimationNodeAnimation_cx4g0")
-states/fall/position = Vector2(200, 200)
-states/grap/node = SubResource("AnimationNodeAnimation_o5iuh")
-states/grap/position = Vector2(400, 200)
-states/hurt/node = SubResource("AnimationNodeAnimation_jp1pj")
-states/hurt/position = Vector2(600, 200)
-states/jump/node = SubResource("AnimationNodeAnimation_rpbeb")
-states/jump/position = Vector2(800, 200)
-states/jumpAttack/node = SubResource("AnimationNodeAnimation_48wnx")
-states/jumpAttack/position = Vector2(1000, 200)
-states/jumpKick/node = SubResource("AnimationNodeAnimation_cpoul")
-states/jumpKick/position = Vector2(0, 300)
-states/squat/node = SubResource("AnimationNodeAnimation_07vha")
-states/squat/position = Vector2(200, 300)
-states/squatAttack/node = SubResource("AnimationNodeAnimation_sgsqu")
-states/squatAttack/position = Vector2(400, 300)
-states/throw/node = SubResource("AnimationNodeAnimation_6e3hy")
-states/throw/position = Vector2(600, 300)
-states/wake/node = SubResource("AnimationNodeAnimation_06vig")
-states/wake/position = Vector2(800, 300)
-states/walk/node = SubResource("AnimationNodeAnimation_6m3er")
-states/walk/position = Vector2(1000, 300)
+states/act2/node = SubResource("AnimationNodeAnimation_e2klq")
+states/act2/position = Vector2(200, 0)
+states/act3/node = SubResource("AnimationNodeAnimation_nrq2v")
+states/act3/position = Vector2(400, 0)
+states/act4/node = SubResource("AnimationNodeAnimation_5ughe")
+states/act4/position = Vector2(600, 0)
+states/act5/node = SubResource("AnimationNodeAnimation_500fo")
+states/act5/position = Vector2(800, 0)
+states/default/node = SubResource("AnimationNodeAnimation_36bfw")
+states/default/position = Vector2(1000, 0)
+states/down/node = SubResource("AnimationNodeAnimation_uyrcg")
+states/down/position = Vector2(0, 100)
+states/down2/node = SubResource("AnimationNodeAnimation_dmmka")
+states/down2/position = Vector2(200, 100)
+states/fall/node = SubResource("AnimationNodeAnimation_gpleq")
+states/fall/position = Vector2(400, 100)
+states/grap/node = SubResource("AnimationNodeAnimation_fw2iv")
+states/grap/position = Vector2(600, 100)
+states/hurt/node = SubResource("AnimationNodeAnimation_jjt1c")
+states/hurt/position = Vector2(800, 100)
+states/jump/node = SubResource("AnimationNodeAnimation_cxkh6")
+states/jump/position = Vector2(1000, 100)
+states/jumpAttack/node = SubResource("AnimationNodeAnimation_nayba")
+states/jumpAttack/position = Vector2(0, 200)
+states/knockAway/node = SubResource("AnimationNodeAnimation_cx4g0")
+states/knockAway/position = Vector2(200, 200)
+states/squat/node = SubResource("AnimationNodeAnimation_o5iuh")
+states/squat/position = Vector2(400, 200)
+states/throw/node = SubResource("AnimationNodeAnimation_jp1pj")
+states/throw/position = Vector2(600, 200)
+states/tumbleDown/node = SubResource("AnimationNodeAnimation_rpbeb")
+states/tumbleDown/position = Vector2(800, 200)
+states/wake/node = SubResource("AnimationNodeAnimation_48wnx")
+states/wake/position = Vector2(1000, 200)
+states/walk/node = SubResource("AnimationNodeAnimation_cpoul")
+states/walk/position = Vector2(0, 300)
 graph_offset = Vector2(-156.47485, -80.23802)

@@ -8,7 +8,9 @@ var currentAnim: StringName = &""
 func enter(previousStatePath: String, data: Dictionary = {}) -> void:
 	skillName = data.get("skill", &"skill1")
 	obj.vec = Vector2.ZERO
-	currentAnim = obj.skillAnims.get(skillName, "act4")
+	# 必杀映射到的片段缺失时退回默认必杀片段，避免空播放
+	var anim: StringName = obj.skillAnims.get(skillName, &"act4")
+	currentAnim = anim if obj.hasAnim(anim) else &"act4"
 	obj.playAnim(currentAnim)
 
 

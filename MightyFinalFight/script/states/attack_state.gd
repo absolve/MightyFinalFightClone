@@ -27,7 +27,11 @@ func enter(_previousStatePath: String, data: Dictionary = {}) -> void:
 	elapsed = 0.0
 	obj.vec = Vector2.ZERO
 	obj.faceInput()
-	currentAnim = "squatAttack" if isSquat else "act%d" % hitCount
+	# 蹲击片段缺失时退回普通第一段，保证出拳一定有动画与判定
+	if isSquat:
+		currentAnim = &"squatAttack" if obj.hasAnim(&"squatAttack") else &"act1"
+	else:
+		currentAnim = "act%d" % hitCount
 	# 清掉发起攻击的那次出拳，连段只认攻击期间新按的拳
 	InputRecorder.clearBuffer(obj.playerId)
 	obj.playAnim(currentAnim)
