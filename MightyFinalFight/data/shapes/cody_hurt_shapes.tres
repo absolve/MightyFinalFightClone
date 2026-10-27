@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ShapeFrames2D" format=3]
+
+[ext_resource type="Script" path="res://addons/goutte.animated_shape_2d/shape_frame_2d.gd" id="1_xnuer"]
+[ext_resource type="Script" path="res://addons/goutte.animated_shape_2d/shape_frames_2d.gd" id="2_rib2k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x8hnw"]
+size = Vector2(26, 40)
+
+[sub_resource type="Resource" id="Resource_agg1n"]
+script = ExtResource("1_xnuer")
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_x8hnw")
+
+[resource]
+script = ExtResource("2_rib2k")
+data = {
+&"default": [SubResource("Resource_agg1n")]
+}

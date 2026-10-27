@@ -26,6 +26,10 @@ window/size/viewport_width=640
 window/size/viewport_height=480
 window/stretch/mode="viewport"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/goutte.animated_shape_2d/plugin.cfg")
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true

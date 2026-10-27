@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://df0d4vdj484bb"]
 
 [ext_resource type="Script" uid="uid://k57k6ywo7jvj" path="res://script/object.gd" id="1"]
+[ext_resource type="Script" path="res://addons/goutte.animated_shape_2d/animated_shape_2d.gd" id="2_shape"]
 
 [node name="object" type="CharacterBody2D" unique_id=1863838441]
 script = ExtResource("1")
@@ -20,3 +21,15 @@ modulate = Color(0.976471, 0.639216, 0.639216, 1)
 
 [node name="tree" type="AnimationTree" parent="." unique_id=1366713045]
 anim_player = NodePath("../player")
+
+[node name="hurtShape" type="Node" parent="." unique_id=2077384615 node_paths=PackedStringArray("animated_sprite")]
+script = ExtResource("2_shape")
+animated_sprite = NodePath("../body/ani")
+handle_flip_h = false
+
+[node name="hitShape" type="Node" parent="." unique_id=2077384616 node_paths=PackedStringArray("animated_sprite")]
+script = ExtResource("2_shape")
+animated_sprite = NodePath("../body/ani")
+handle_flip_h = false
+use_initial_as_fallback = false
+use_previous_as_fallback = true

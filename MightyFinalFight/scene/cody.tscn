@@ -25,6 +25,8 @@
 [ext_resource type="Resource" path="res://data/combos/cody/skill3.tres" id="44"]
 [ext_resource type="AnimationLibrary" uid="uid://cfa6jf0ewb4ot" path="res://data/anims/cody_library.tres" id="77"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://da0fubhmcmws5" path="res://data/anims/cody_state_machine.tres" id="78"]
+[ext_resource type="Resource" path="res://data/shapes/cody_hurt_shapes.tres" id="50"]
+[ext_resource type="Resource" path="res://data/shapes/cody_hit_shapes.tres" id="51"]
 
 [sub_resource type="AtlasTexture" id="21"]
 atlas = ExtResource("2")
@@ -441,7 +443,15 @@ libraries/ = ExtResource("77")
 [node name="tree" parent="." index="3" unique_id=1366713045]
 tree_root = ExtResource("78")
 
-[node name="stateMachine" parent="." index="4" unique_id=184804755 instance=ExtResource("32")]
+[node name="hurtShape" parent="." index="4" unique_id=2077384615 node_paths=PackedStringArray("collision_shape")]
+collision_shape = NodePath("../body/hurtBox/shape")
+shape_frames = ExtResource("50")
+
+[node name="hitShape" parent="." index="5" unique_id=2077384616 node_paths=PackedStringArray("collision_shape")]
+collision_shape = NodePath("../body/hitBox/shape")
+shape_frames = ExtResource("51")
+
+[node name="stateMachine" parent="." index="6" unique_id=184804755 instance=ExtResource("32")]
 initialState = NodePath("idleState")
 
 [node name="idleState" type="Node" parent="stateMachine" index="0" unique_id=1028576665]
