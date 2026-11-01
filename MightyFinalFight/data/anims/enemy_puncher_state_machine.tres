@@ -1,0 +1,28 @@
+[gd_resource type="AnimationNodeStateMachine" format=3]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ao787"]
+animation = &"act1"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_co4i8"]
+animation = &"default"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h6b1w"]
+animation = &"down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_icvmc"]
+animation = &"hurt"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8qgjg"]
+animation = &"walk"
+
+[resource]
+states/act1/node = SubResource("AnimationNodeAnimation_ao787")
+states/act1/position = Vector2(0, 0)
+states/default/node = SubResource("AnimationNodeAnimation_co4i8")
+states/default/position = Vector2(200, 0)
+states/down/node = SubResource("AnimationNodeAnimation_h6b1w")
+states/down/position = Vector2(400, 0)
+states/hurt/node = SubResource("AnimationNodeAnimation_icvmc")
+states/hurt/position = Vector2(600, 0)
+states/walk/node = SubResource("AnimationNodeAnimation_8qgjg")
+states/walk/position = Vector2(800, 0)

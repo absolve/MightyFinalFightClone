@@ -34,7 +34,7 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.05, 0.15),
+"times": PackedFloat32Array(0.03, 0.13),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [true],
@@ -79,7 +79,7 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.05, 0.15),
+"times": PackedFloat32Array(0.03, 0.13),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [true],
@@ -124,7 +124,7 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.1, 0.23),
+"times": PackedFloat32Array(0.03, 0.15),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [true],
@@ -313,7 +313,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_phqjo"]
 resource_name = "fall"
-length = 0.3333333333333333
+length = 0.08333333333333333
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -334,10 +334,10 @@ tracks/1/path = NodePath("body/ani:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0, 1, 2, 3]
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_jodg7"]
@@ -428,7 +428,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_x1wb5"]
 resource_name = "jumpAttack"
-length = 0.08333333333333333
+length = 0.16666666666666666
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -448,10 +448,10 @@ tracks/1/path = NodePath("body/ani:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.083333336),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [0]
+"values": [0, 1]
 }
 tracks/2/type = "method"
 tracks/2/imported = false
@@ -472,6 +472,80 @@ tracks/2/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_tcd6s"]
+resource_name = "jumpKick"
+length = 0.16666666666666666
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body/ani:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"jumpKick"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("body/ani:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.083333336),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.03, 0.11),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [true],
+"method": &"setHitBoxEnabled"
+}, {
+"args": [false],
+"method": &"setHitBoxEnabled"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_oimi2"]
+resource_name = "jumpRoll"
+length = 0.25
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body/ani:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"jumpRoll"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("body/ani:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_aaw0q"]
 resource_name = "knockAway"
 length = 0.08333333333333333
 tracks/0/type = "value"
@@ -499,7 +573,7 @@ tracks/1/keys = {
 "values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_oimi2"]
+[sub_resource type="Animation" id="Animation_uxfxk"]
 resource_name = "squat"
 length = 0.08333333333333333
 loop_mode = 1
@@ -528,7 +602,7 @@ tracks/1/keys = {
 "values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_aaw0q"]
+[sub_resource type="Animation" id="Animation_jls2k"]
 resource_name = "throw"
 length = 0.16666666666666666
 tracks/0/type = "value"
@@ -573,7 +647,7 @@ tracks/2/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_uxfxk"]
+[sub_resource type="Animation" id="Animation_lxo2h"]
 resource_name = "tumbleDown"
 length = 0.25
 loop_mode = 1
@@ -602,7 +676,7 @@ tracks/1/keys = {
 "values": [0, 1, 2]
 }
 
-[sub_resource type="Animation" id="Animation_jls2k"]
+[sub_resource type="Animation" id="Animation_5td4u"]
 resource_name = "wake"
 length = 0.16666666666666666
 tracks/0/type = "value"
@@ -630,7 +704,7 @@ tracks/1/keys = {
 "values": [0, 1]
 }
 
-[sub_resource type="Animation" id="Animation_lxo2h"]
+[sub_resource type="Animation" id="Animation_4e54o"]
 resource_name = "walk"
 length = 0.4
 loop_mode = 1
@@ -674,10 +748,12 @@ _data = {
 &"hurt": SubResource("Animation_xb11a"),
 &"jump": SubResource("Animation_b8mkl"),
 &"jumpAttack": SubResource("Animation_x1wb5"),
-&"knockAway": SubResource("Animation_tcd6s"),
-&"squat": SubResource("Animation_oimi2"),
-&"throw": SubResource("Animation_aaw0q"),
-&"tumbleDown": SubResource("Animation_uxfxk"),
-&"wake": SubResource("Animation_jls2k"),
-&"walk": SubResource("Animation_lxo2h")
+&"jumpKick": SubResource("Animation_tcd6s"),
+&"jumpRoll": SubResource("Animation_oimi2"),
+&"knockAway": SubResource("Animation_aaw0q"),
+&"squat": SubResource("Animation_uxfxk"),
+&"throw": SubResource("Animation_jls2k"),
+&"tumbleDown": SubResource("Animation_lxo2h"),
+&"wake": SubResource("Animation_5td4u"),
+&"walk": SubResource("Animation_4e54o")
 }

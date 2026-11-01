@@ -15,11 +15,12 @@ func _ready() -> void:
 	applyPlayBounds()
 
 
-# 把本关的可活动范围写给场上所有玩家（分组见 Player.GROUP）
+# 把本关的可活动范围写给场上所有玩家与敌人（分组见 Player.GROUP / Enemy.GROUP）
 func applyPlayBounds() -> void:
 	if playBounds.size == Vector2.ZERO:
 		return
-	for node in get_tree().get_nodes_in_group(Player.GROUP):
-		var fightObject: FightObject = node as FightObject
-		if fightObject != null:
-			fightObject.playBounds = playBounds
+	for groupName: StringName in [Player.GROUP, Enemy.GROUP]:
+		for node in get_tree().get_nodes_in_group(groupName):
+			var fightObject: FightObject = node as FightObject
+			if fightObject != null:
+				fightObject.playBounds = playBounds

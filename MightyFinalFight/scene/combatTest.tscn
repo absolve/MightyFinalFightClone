@@ -1,0 +1,45 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://script/combat_test.gd" id="1"]
+[ext_resource type="Texture2D" path="res://sprite/bg/Round 1.png" id="2"]
+[ext_resource type="PackedScene" path="res://scene/cody.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://scene/guy.tscn" id="4"]
+[ext_resource type="PackedScene" path="res://scene/haggar.tscn" id="5"]
+[ext_resource type="PackedScene" path="res://scene/enemy_puncher.tscn" id="6"]
+[ext_resource type="PackedScene" path="res://scene/hud.tscn" id="7"]
+
+[sub_resource type="LabelSettings" id="debugText"]
+font_size = 12
+font_color = Color(1, 1, 1, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="combatTest" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1")
+playerScenes = Array[PackedScene]([ExtResource("3"), ExtResource("4"), ExtResource("5")])
+enemyScenes = Array[PackedScene]([ExtResource("6")])
+
+[node name="bg" type="Sprite2D" parent="."]
+texture = ExtResource("2")
+centered = false
+scale = Vector2(3, 3)
+
+[node name="playerHolder" type="Node2D" parent="."]
+
+[node name="enemyHolder" type="Node2D" parent="."]
+
+[node name="hud" parent="." instance=ExtResource("7")]
+
+[node name="debugLayer" type="CanvasLayer" parent="."]
+
+[node name="debugLabel" type="Label" parent="debugLayer"]
+offset_left = 8.0
+offset_top = 66.0
+offset_right = 632.0
+offset_bottom = 300.0
+label_settings = SubResource("debugText")
+text = "对战测试沙盒
+1/2/3 = P1 换角色，4/5/6 = P2 换角色
+E = 刷敌人，C = 清空敌人，R = 重置，H = 显示/隐藏本面板
+"

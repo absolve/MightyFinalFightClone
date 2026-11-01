@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://cdlmdn8ogq46r"]
 
 [ext_resource type="PackedScene" path="res://scene/map.tscn" id="1"]
-[ext_resource type="Script" uid="uid://cuxehcqbladok" path="res://script/stage1.gd" id="2"]
+[ext_resource type="Script" uid="uid://d32nr6sat6c2l" path="res://script/stage1.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://5roydaqkmhkq" path="res://sprite/bg/Round 1.png" id="3"]
 [ext_resource type="PackedScene" path="res://scene/cody.tscn" id="4"]
 [ext_resource type="PackedScene" path="res://scene/hud.tscn" id="5"]
+[ext_resource type="PackedScene" path="res://scene/enemy_puncher.tscn" id="6"]
 
 [node name="stage1" unique_id=133701511 instance=ExtResource("1")]
 y_sort_enabled = true
@@ -18,5 +19,8 @@ centered = false
 
 [node name="codyP1" parent="." instance=ExtResource("4")]
 position = Vector2(220, 360)
+
+[node name="enemyPuncher" parent="." instance=ExtResource("6")]
+position = Vector2(480, 360)
 
 [node name="hud" parent="." instance=ExtResource("5")]

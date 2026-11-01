@@ -17,6 +17,8 @@ class_name AnimBuilder
 
 const DEFAULT_FPS: float = 12.0
 const ANIM_SAVE_DIR: String = "res://data/anims/"
+## 收拳关键帧距片段末尾的最小留白（贴在末尾的方法轨道不会被触发）
+const WINDOW_END_EPSILON: float = 0.001
 
 
 # 运行时兜底：直接构建到节点上（不入盘），场景已配置时不会走到这里
@@ -41,10 +43,33 @@ static func saveToFiles(target: FightObject) -> Dictionary:
 	var libPath: String = "%s%s_library.tres" % [ANIM_SAVE_DIR, key]
 	var smPath: String = "%s%s_state_machine.tres" % [ANIM_SAVE_DIR, key]
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(ANIM_SAVE_DIR))
-	ResourceSaver.save(library, libPath)
-	ResourceSaver.save(machine, smPath)
+	saveKeepingUid(library, libPath)
+	saveKeepingUid(machine, smPath)
 	return { library = library, stateMachine = machine,
 		libraryPath = libPath, stateMachinePath = smPath }
+
+
+# 覆盖同名 .tres 时保留原来的 uid：场景里的 ext_resource 按 uid 引用，
+# uid 一丢就会满屏「invalid UID ... using text path instead」警告。
+# Resource.set_resource_uid() 只在编辑器里可用，所以只能在写盘后把 uid 补回头部。
+static func saveKeepingUid(resource: Resource, path: String) -> void:
+	var previousUid: int = ResourceLoader.get_resource_uid(path)
+	var error: int = ResourceSaver.save(resource, path)
+	if error != OK:
+		push_error("保存 %s 失败：%s" % [path, error_string(error)])
+	if previousUid <= ResourceUID.INVALID_ID:
+		return
+	var text: String = FileAccess.get_file_as_string(path)
+	var uidText: String = ResourceUID.id_to_text(previousUid)
+	var lineEnd: int = text.find("\n")
+	if lineEnd <= 0 or not text.substr(0, lineEnd).begins_with("[gd_resource") \
+			or text.contains(uidText):
+		return
+	var header: String = text.substr(0, lineEnd)
+	header = header.substr(0, header.length() - 1) + ' uid="%s"]' % uidText
+	var file: FileAccess = FileAccess.open(path, FileAccess.WRITE)
+	file.store_string(header + text.substr(lineEnd))
+	file.close()
 
 
 static func makeLibrary(spriteFrames: SpriteFrames, overrides: Dictionary) -> AnimationLibrary:
@@ -110,10 +135,16 @@ static func makeClip(animName: StringName, frameCount: int, setting: Dictionary)
 		clip.track_insert_key(frameTrack, i / fps, i)
 	if setting.has("hitWindow"):
 		var window: Array = setting["hitWindow"]
+		# 窗口必须落在片段内：收拳关键帧贴在片段末尾不会被触发，所以留出余量
+		var finish: float = minf(window[1], clip.length - WINDOW_END_EPSILON)
+		var start: float = minf(window[0], maxf(finish - WINDOW_END_EPSILON, 0.0))
+		if start >= finish or window[1] > clip.length:
+			push_warning("%s 的 hitWindow [%s, %s] 超出片段长度 %.3f，已收窄为 %.3f~%.3f"
+					% [animName, window[0], window[1], clip.length, start, finish])
 		var methodTrack: int = clip.add_track(Animation.TYPE_METHOD)
 		clip.track_set_path(methodTrack, NodePath("."))
-		clip.track_insert_key(methodTrack, window[0],
+		clip.track_insert_key(methodTrack, start,
 				{"method": &"setHitBoxEnabled", "args": [true]})
-		clip.track_insert_key(methodTrack, window[1],
+		clip.track_insert_key(methodTrack, finish,
 				{"method": &"setHitBoxEnabled", "args": [false]})
 	return clip

@@ -1,0 +1,284 @@
+[gd_resource type="SpriteFrames" format=3]
+
+[ext_resource type="Texture2D" path="res://sprite/player/Guy_01_13x2.png" id="1"]
+[ext_resource type="Texture2D" path="res://sprite/player/Guy_107_13x3.png" id="2"]
+
+[sub_resource type="AtlasTexture" id="G2_0"]
+atlas = ExtResource("2")
+region = Rect2(0, 0, 39, 34)
+
+[sub_resource type="AtlasTexture" id="G2_1"]
+atlas = ExtResource("2")
+region = Rect2(39, 0, 39, 34)
+
+[sub_resource type="AtlasTexture" id="G2_2"]
+atlas = ExtResource("2")
+region = Rect2(78, 0, 39, 34)
+
+[sub_resource type="AtlasTexture" id="G2_3"]
+atlas = ExtResource("2")
+region = Rect2(117, 0, 39, 34)
+
+[sub_resource type="AtlasTexture" id="G2_4"]
+atlas = ExtResource("2")
+region = Rect2(156, 0, 39, 34)
+
+[sub_resource type="AtlasTexture" id="G2_5"]
+atlas = ExtResource("2")
+region = Rect2(195, 0, 39, 34)
+
+[sub_resource type="AtlasTexture" id="G2_26"]
+atlas = ExtResource("2")
+region = Rect2(0, 68, 39, 34)
+
+[sub_resource type="AtlasTexture" id="G2_27"]
+atlas = ExtResource("2")
+region = Rect2(39, 68, 39, 34)
+
+[sub_resource type="AtlasTexture" id="G2_30"]
+atlas = ExtResource("2")
+region = Rect2(156, 68, 39, 34)
+
+[sub_resource type="AtlasTexture" id="G2_16"]
+atlas = ExtResource("2")
+region = Rect2(117, 34, 39, 34)
+
+[sub_resource type="AtlasTexture" id="G2_17"]
+atlas = ExtResource("2")
+region = Rect2(156, 34, 39, 34)
+
+[sub_resource type="AtlasTexture" id="G2_18"]
+atlas = ExtResource("2")
+region = Rect2(195, 34, 39, 34)
+
+[sub_resource type="AtlasTexture" id="G2_20"]
+atlas = ExtResource("2")
+region = Rect2(273, 34, 39, 34)
+
+[sub_resource type="AtlasTexture" id="G2_21"]
+atlas = ExtResource("2")
+region = Rect2(312, 34, 39, 34)
+
+[sub_resource type="AtlasTexture" id="G2_22"]
+atlas = ExtResource("2")
+region = Rect2(351, 34, 39, 34)
+
+[sub_resource type="AtlasTexture" id="G1_0"]
+atlas = ExtResource("1")
+region = Rect2(0, 0, 39, 34)
+
+[sub_resource type="AtlasTexture" id="G1_1"]
+atlas = ExtResource("1")
+region = Rect2(39, 0, 39, 34)
+
+[sub_resource type="AtlasTexture" id="G1_13"]
+atlas = ExtResource("1")
+region = Rect2(0, 34, 39, 34)
+
+[sub_resource type="AtlasTexture" id="G1_14"]
+atlas = ExtResource("1")
+region = Rect2(39, 34, 39, 34)
+
+[sub_resource type="AtlasTexture" id="G1_15"]
+atlas = ExtResource("1")
+region = Rect2(78, 34, 39, 34)
+
+[sub_resource type="AtlasTexture" id="G1_7"]
+atlas = ExtResource("1")
+region = Rect2(273, 0, 39, 34)
+
+[sub_resource type="AtlasTexture" id="G2_9"]
+atlas = ExtResource("2")
+region = Rect2(351, 0, 39, 34)
+
+[sub_resource type="AtlasTexture" id="G2_10"]
+atlas = ExtResource("2")
+region = Rect2(390, 0, 39, 34)
+
+[sub_resource type="AtlasTexture" id="G1_8"]
+atlas = ExtResource("1")
+region = Rect2(312, 0, 39, 34)
+
+[sub_resource type="AtlasTexture" id="G1_6"]
+atlas = ExtResource("1")
+region = Rect2(234, 0, 39, 34)
+
+[sub_resource type="AtlasTexture" id="G2_13"]
+atlas = ExtResource("2")
+region = Rect2(0, 34, 39, 34)
+
+[sub_resource type="AtlasTexture" id="G2_14"]
+atlas = ExtResource("2")
+region = Rect2(39, 34, 39, 34)
+
+[sub_resource type="AtlasTexture" id="G2_11"]
+atlas = ExtResource("2")
+region = Rect2(429, 0, 39, 34)
+
+[sub_resource type="AtlasTexture" id="G2_12"]
+atlas = ExtResource("2")
+region = Rect2(468, 0, 39, 34)
+
+[sub_resource type="AtlasTexture" id="G1_9"]
+atlas = ExtResource("1")
+region = Rect2(351, 0, 39, 34)
+
+[sub_resource type="AtlasTexture" id="G1_10"]
+atlas = ExtResource("1")
+region = Rect2(390, 0, 39, 34)
+
+[sub_resource type="AtlasTexture" id="G1_12"]
+atlas = ExtResource("1")
+region = Rect2(468, 0, 39, 34)
+
+[sub_resource type="AtlasTexture" id="G2_15"]
+atlas = ExtResource("2")
+region = Rect2(78, 34, 39, 34)
+
+[sub_resource type="AtlasTexture" id="G1_16"]
+atlas = ExtResource("1")
+region = Rect2(117, 34, 39, 34)
+
+[sub_resource type="AtlasTexture" id="G1_17"]
+atlas = ExtResource("1")
+region = Rect2(156, 34, 39, 34)
+
+[sub_resource type="AtlasTexture" id="G1_2"]
+atlas = ExtResource("1")
+region = Rect2(78, 0, 39, 34)
+
+[sub_resource type="AtlasTexture" id="G1_3"]
+atlas = ExtResource("1")
+region = Rect2(117, 0, 39, 34)
+
+[sub_resource type="AtlasTexture" id="G1_4"]
+atlas = ExtResource("1")
+region = Rect2(156, 0, 39, 34)
+
+[sub_resource type="AtlasTexture" id="G1_5"]
+atlas = ExtResource("1")
+region = Rect2(195, 0, 39, 34)
+
+[resource]
+animations = [
+{
+"frames": [SubResource("G2_0"), SubResource("G2_1")],
+"loop": 0,
+"name": &"act1",
+"speed": 12.0
+},
+{
+"frames": [SubResource("G2_2"), SubResource("G2_3")],
+"loop": 0,
+"name": &"act2",
+"speed": 12.0
+},
+{
+"frames": [SubResource("G2_4"), SubResource("G2_5")],
+"loop": 0,
+"name": &"act3",
+"speed": 12.0
+},
+{
+"frames": [SubResource("G2_26"), SubResource("G2_27"), SubResource("G2_30")],
+"loop": 0,
+"name": &"act4",
+"speed": 12.0
+},
+{
+"frames": [SubResource("G2_16"), SubResource("G2_17"), SubResource("G2_18")],
+"loop": 0,
+"name": &"act5",
+"speed": 12.0
+},
+{
+"frames": [SubResource("G2_20"), SubResource("G2_21"), SubResource("G2_22")],
+"loop": 0,
+"name": &"act7",
+"speed": 12.0
+},
+{
+"frames": [SubResource("G1_0"), SubResource("G1_1")],
+"loop": 1,
+"name": &"default",
+"speed": 6.0
+},
+{
+"frames": [SubResource("G1_13"), SubResource("G1_14"), SubResource("G1_15")],
+"loop": 1,
+"name": &"down",
+"speed": 12.0
+},
+{
+"frames": [SubResource("G1_7")],
+"loop": 1,
+"name": &"fall",
+"speed": 12.0
+},
+{
+"frames": [SubResource("G2_9"), SubResource("G2_10")],
+"loop": 1,
+"name": &"grap",
+"speed": 12.0
+},
+{
+"frames": [SubResource("G1_8")],
+"loop": 0,
+"name": &"hurt",
+"speed": 4.0
+},
+{
+"frames": [SubResource("G1_6")],
+"loop": 1,
+"name": &"jump",
+"speed": 12.0
+},
+{
+"frames": [SubResource("G2_13"), SubResource("G2_14")],
+"loop": 0,
+"name": &"jumpAttack",
+"speed": 12.0
+},
+{
+"frames": [SubResource("G2_11"), SubResource("G2_12")],
+"loop": 0,
+"name": &"jumpKick",
+"speed": 12.0
+},
+{
+"frames": [SubResource("G1_9"), SubResource("G1_10")],
+"loop": 1,
+"name": &"jumpRoll",
+"speed": 12.0
+},
+{
+"frames": [SubResource("G1_12")],
+"loop": 1,
+"name": &"squat",
+"speed": 12.0
+},
+{
+"frames": [SubResource("G2_3"), SubResource("G2_15")],
+"loop": 0,
+"name": &"squatAttack",
+"speed": 12.0
+},
+{
+"frames": [SubResource("G2_11"), SubResource("G2_12"), SubResource("G2_13"), SubResource("G2_14")],
+"loop": 1,
+"name": &"throw",
+"speed": 12.0
+},
+{
+"frames": [SubResource("G1_16"), SubResource("G1_17")],
+"loop": 1,
+"name": &"wake",
+"speed": 12.0
+},
+{
+"frames": [SubResource("G1_2"), SubResource("G1_3"), SubResource("G1_4"), SubResource("G1_5")],
+"loop": 1,
+"name": &"walk",
+"speed": 10.0
+}
+]

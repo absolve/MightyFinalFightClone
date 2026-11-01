@@ -11,6 +11,7 @@ class_name FightObject
 ## 伪 Z 轴重力（[method startJump] / [method applyGravity]）。
 
 signal hpChanged(currentHp: int)
+signal hitLanded(target: FightObject)
 
 const DAMAGE_NUMBER_SCENE: PackedScene = preload("res://scene/damage_number.tscn")
 
@@ -48,6 +49,11 @@ var keyMapPrefix: String = "p1"
 @onready var player: AnimationPlayer = $player
 @onready var tree: AnimationTree = $tree
 
+# 最近一次请求的片段名，以及它是否已播完：一次性片段播完后状态机里的节点名不会变，
+# 只看节点名会误判成「还在播」而跳过重播，导致招式不再推进、状态机永久停在攻击态
+var lastRequestedAnim: StringName = &""
+var lastAnimFinished: bool = true
+
 # AnimationTree 状态机播放控制器，buildAnimations 之后可用
 var playback: AnimationNodeStateMachinePlayback
 # 承载攻击框横向偏移的节点与偏移量：偏移可能写在 Area2D 自身，也可能写在其碰撞形状子节点上
@@ -62,6 +68,7 @@ func _ready() -> void:
 	hitBoxNode.area_entered.connect(onHitBoxAreaEntered)
 	setHitBoxEnabled(false)
 	buildAnimations()
+	tree.animation_finished.connect(onTreeAnimationFinished)
 
 # 子类返回动画覆盖表（fps/loop/hitWindow），见 AnimBuilder
 func getMoveOverrides() -> Dictionary:
@@ -95,14 +102,31 @@ func getAnimLength(animName: StringName) -> float:
 func playAnim(animName: StringName) -> void:
 	if playback == null or not hasAnim(animName):
 		return
-	if playback.get_current_node() != animName:
-		playback.start(animName)
+	# 同名且仍在播放中才跳过：循环片段（walk/jump 等）每帧重复请求不能被打回起点，
+	# 而一次性招式片段播完后必须重新 start 才会再走一遍
+	if animName == lastRequestedAnim and not lastAnimFinished:
+		return
+	lastRequestedAnim = animName
+	lastAnimFinished = false
+	playback.start(animName)
+
+
+# 循环片段不会发 animation_finished，lastAnimFinished 因此保持 false，后续同名请求继续被跳过
+func onTreeAnimationFinished(animName: StringName) -> void:
+	if animName == lastRequestedAnim:
+		lastAnimFinished = true
 
 
 # ---------------------------------------------------------------- 朝向
 
 # 攻击框的横向偏移可能写在 Area2D 自身或其碰撞形状子节点上，二者取其一作为翻转基准
 func setupHitBoxOffset() -> void:
+	# hitShape 使用 AnimatedShape2D 逐帧写入形状并自带镜像翻转时，交给插件处理，
+	# 避免这里再按朝向覆盖 x（两边同时改会互相打架）
+	var pluginShape: Node = get_node_or_null("hitShape")
+	if pluginShape != null and bool(pluginShape.get("handle_flip_h")):
+		hitBoxOffsetNode = null
+		return
 	hitBoxOffsetNode = hitBoxNode
 	hitBoxBaseX = absf(hitBoxNode.position.x)
 	if is_zero_approx(hitBoxBaseX) and hitBoxNode.get_child_count() > 0:
@@ -214,3 +238,4 @@ func onHitBoxAreaEntered(area: Area2D) -> void:
 	if target == null or target == self:
 		return
 	target.takeDamage(attack, faceDir)
+	hitLanded.emit(target)

@@ -1,91 +1,98 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=20 format=3]
 
-[ext_resource path="res://scene/object.tscn" type="PackedScene" id=1]
-[ext_resource path="res://sprite/player/Haggar_01_12x5.png" type="Texture2D" id=2]
+[ext_resource type="Script" path="res://script/haggar.gd" id="1"]
+[ext_resource type="SpriteFrames" path="res://data/sprites/haggar_frames.tres" id="2"]
+[ext_resource type="Script" uid="uid://v51hjiuhcw8" path="res://script/combo_def.gd" id="3"]
+[ext_resource type="Script" uid="uid://ci35d7c2o3owe" path="res://script/stateMachine.gd" id="4"]
+[ext_resource type="Script" uid="uid://2j2jbf07a5y6" path="res://script/states/idle_state.gd" id="5"]
+[ext_resource type="Script" uid="uid://bhchmfalnn0mu" path="res://script/states/walk_state.gd" id="6"]
+[ext_resource type="Script" uid="uid://7x1e14lhkpgq" path="res://script/states/jump_state.gd" id="7"]
+[ext_resource type="Script" uid="uid://jduowvg5qr0i" path="res://script/states/attack_state.gd" id="8"]
+[ext_resource type="Script" uid="uid://30ggmyt6s3cr" path="res://script/states/skill_state.gd" id="9"]
+[ext_resource type="Script" uid="uid://bw57f43npv0i8" path="res://script/states/hurt_state.gd" id="10"]
+[ext_resource type="Resource" path="res://data/combos/cody/skill1_left.tres" id="11"]
+[ext_resource type="Resource" path="res://data/combos/cody/skill1_right.tres" id="12"]
+[ext_resource type="Resource" path="res://data/combos/cody/skill2_leftright.tres" id="13"]
+[ext_resource type="Resource" path="res://data/combos/cody/skill2_rightleft.tres" id="14"]
+[ext_resource type="Resource" path="res://data/combos/cody/skill3.tres" id="15"]
+[ext_resource type="AnimationLibrary" path="res://data/anims/haggar_library.tres" id="16"]
+[ext_resource type="AnimationNodeStateMachine" path="res://data/anims/haggar_state_machine.tres" id="17"]
 
-[sub_resource type="AtlasTexture" id=2]
-atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 41, 42 )
+[sub_resource type="RectangleShape2D" id="hurt_rect"]
+size = Vector2(26, 38)
 
-[sub_resource type="AtlasTexture" id=3]
-atlas = ExtResource( 2 )
-region = Rect2( 41, 0, 41, 42 )
+[sub_resource type="RectangleShape2D" id="hit_rect"]
+size = Vector2(18, 16)
 
-[sub_resource type="AtlasTexture" id=4]
-atlas = ExtResource( 2 )
-region = Rect2( 82, 0, 41, 42 )
+[sub_resource type="RectangleShape2D" id="body_rect"]
+size = Vector2(16, 4)
 
-[sub_resource type="AtlasTexture" id=5]
-atlas = ExtResource( 2 )
-region = Rect2( 123, 0, 41, 42 )
+[node name="haggar" type="CharacterBody2D"]
+script = ExtResource("1")
+hp = 80
+maxHp = 80
+attack = 6
+speed = 68.0
+jumpSpeed = 300.0
+gravity = 1008.0
+comboDamage = Array[int]([6, 4, 10])
+squatDamage = 6
+airAttackDamage = 10
+combos = Array[ExtResource("3")]([ExtResource("11"), ExtResource("12"), ExtResource("13"), ExtResource("14"), ExtResource("15")])
+skillAnims = { "skill1": "act5", "skill2": "act4", "skill3": "act7" }
 
-[sub_resource type="AtlasTexture" id=6]
-atlas = ExtResource( 2 )
-region = Rect2( 164, 0, 41, 42 )
+[node name="body" type="Node2D" parent="."]
 
-[sub_resource type="AtlasTexture" id=7]
-atlas = ExtResource( 2 )
-region = Rect2( 205, 0, 41, 42 )
+[node name="ani" type="AnimatedSprite2D" parent="body"]
+sprite_frames = ExtResource("2")
 
-[sub_resource type="AtlasTexture" id=8]
-atlas = ExtResource( 2 )
-region = Rect2( 246, 0, 41, 42 )
+[node name="hurtBox" type="Area2D" parent="body"]
+collision_layer = 1
+collision_mask = 0
+monitoring = false
 
-[sub_resource type="SpriteFrames" id=1]
-animations = [ {
-"frames": [  ],
-"loop": true,
-"name": "attack",
-"speed": 5.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "attack1",
-"speed": 5.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "awake",
-"speed": 5.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "grap",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 2 ), SubResource( 3 ) ],
-"loop": true,
-"name": "idle",
-"speed": 5.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "jump",
-"speed": 5.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "skill",
-"speed": 5.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "skill1",
-"speed": 5.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "throw",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
-"loop": true,
-"name": "walk",
-"speed": 5.0
-} ]
+[node name="shape" type="CollisionShape2D" parent="body/hurtBox"]
+position = Vector2(0, -2)
+shape = SubResource("hurt_rect")
 
-[node name="object" instance=ExtResource( 1 )]
+[node name="hitBox" type="Area2D" parent="body"]
+position = Vector2(24, -8)
+collision_layer = 2
+collision_mask = 4
+monitorable = false
 
-[node name="ani" parent="." index="0"]
-frames = SubResource( 1 )
-animation = "skill1"
+[node name="shape" type="CollisionShape2D" parent="body/hitBox"]
+shape = SubResource("hit_rect")
+
+[node name="footShape" type="CollisionShape2D" parent="."]
+position = Vector2(0, 14)
+shape = SubResource("body_rect")
+
+[node name="player" type="AnimationPlayer" parent="."]
+libraries/ = ExtResource("16")
+
+[node name="tree" type="AnimationTree" parent="."]
+tree_root = ExtResource("17")
+anim_player = NodePath("../player")
+
+[node name="stateMachine" type="Node" parent="."]
+script = ExtResource("4")
+initialState = NodePath("idleState")
+
+[node name="idleState" type="Node" parent="stateMachine"]
+script = ExtResource("5")
+
+[node name="walkState" type="Node" parent="stateMachine"]
+script = ExtResource("6")
+
+[node name="jumpState" type="Node" parent="stateMachine"]
+script = ExtResource("7")
+
+[node name="attackState" type="Node" parent="stateMachine"]
+script = ExtResource("8")
+
+[node name="skillState" type="Node" parent="stateMachine"]
+script = ExtResource("9")
+
+[node name="hurtState" type="Node" parent="stateMachine"]
+script = ExtResource("10")

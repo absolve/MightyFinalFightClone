@@ -16,7 +16,7 @@ func tryPunchCombo() -> bool:
 		matched = ComboMatcher.match(obj.combos, InputRecorder.getBuffer(obj.playerId))
 	if matched != null:
 		InputRecorder.clearBuffer(obj.playerId)
-		stateMachineNode.transition_to("skillState", { skill = matched.skillName })
+		stateMachineNode.transition_to("skillState", { skill = matched.skillName, damage = matched.damage })
 	elif Input.is_action_pressed("%s_down" % obj.keyMapPrefix):
 		stateMachineNode.transition_to("attackState", { hit = 1, squat = true })
 	else:

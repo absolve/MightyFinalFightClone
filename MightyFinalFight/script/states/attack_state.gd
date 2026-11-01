@@ -12,11 +12,14 @@ const MAX_COMBO: int = 3
 const CANCEL_RATIO: float = 0.55
 ## 取不到片段长度时的兜底可取消时刻（秒）
 const MIN_CANCEL_TIME: float = 0.08
+## 兜底脱困时长：片段播完却没收到结束信号（贴图缺失/被打断）时，超过它强制回待机
+const STALL_GUARD_TIME: float = 0.2
 
 var hitCount: int = 1
 var isSquat: bool = false
 var currentAnim: StringName = &""
 var buffered: bool = false
+var hitConfirmed: bool = false
 var elapsed: float = 0.0
 var cancelTime: float = MIN_CANCEL_TIME
 
@@ -24,14 +27,20 @@ func enter(_previousStatePath: String, data: Dictionary = {}) -> void:
 	hitCount = data.get("hit", 1)
 	isSquat = data.get("squat", false)
 	buffered = false
+	hitConfirmed = false
 	elapsed = 0.0
+	if not obj.hitLanded.is_connected(_onHitLanded):
+		obj.hitLanded.connect(_onHitLanded)
 	obj.vec = Vector2.ZERO
 	obj.faceInput()
+	var fighter: Player = obj as Player
 	# 蹲击片段缺失时退回普通第一段，保证出拳一定有动画与判定
 	if isSquat:
 		currentAnim = &"squatAttack" if obj.hasAnim(&"squatAttack") else &"act1"
+		obj.attack = fighter.squatDamage
 	else:
 		currentAnim = "act%d" % hitCount
+		obj.attack = fighter.comboDamage[clampi(hitCount - 1, 0, fighter.comboDamage.size() - 1)]
 	# 清掉发起攻击的那次出拳，连段只认攻击期间新按的拳
 	InputRecorder.clearBuffer(obj.playerId)
 	obj.playAnim(currentAnim)
@@ -40,21 +49,33 @@ func enter(_previousStatePath: String, data: Dictionary = {}) -> void:
 
 func exit() -> void:
 	obj.setHitBoxEnabled(false)
+	if obj.hitLanded.is_connected(_onHitLanded):
+		obj.hitLanded.disconnect(_onHitLanded)
 
 
-# 蹲击为单段，第 3 段后不再连段
+# 蹲击为单段，第 3 段后不再连段；且必须本段命中过才能接下一段（原作 hit-confirm）
 func canChain() -> bool:
-	return not isSquat and hitCount < MAX_COMBO
+	return hitConfirmed and not isSquat and hitCount < MAX_COMBO
+
+
+func _onHitLanded(_target: FightObject) -> void:
+	hitConfirmed = true
 
 
 func physics_update(delta: float) -> void:
 	elapsed += delta
-	if buffered and elapsed >= cancelTime:
+	if buffered and hitConfirmed and elapsed >= cancelTime:
 		chain()
+		return
+	# 兜底：正常播放一定会收到 animation_finished，超过片段长度仍未收到时强制回待机，
+	# 避免动画被打断/片段缺失导致永远卡在攻击态、不再响应任何输入
+	if elapsed >= cancelTime + STALL_GUARD_TIME:
+		stateMachineNode.transition_to("idleState")
 
 
 func handle_input(event: InputEvent) -> void:
-	if not canChain():
+	# 先入缓冲即可：命中确认在接段时再判断，与原作「打到人才能接后续」一致
+	if isSquat or hitCount >= MAX_COMBO:
 		return
 	if Input.is_action_just_pressed("%s_punch" % obj.keyMapPrefix):
 		buffered = true

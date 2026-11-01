@@ -8,16 +8,19 @@ const MOVE_OVERRIDES: Dictionary = {
 	"default": {"fps": 6.0, "loop": true},
 	"walk": {"fps": 10.0, "loop": true},
 	"jump": {"loop": true},
+	# 翻滚跳（按住方向起跳）与直落（未按方向）是两套贴图
+	"jumpRoll": {"fps": 12.0, "loop": true},
 	"squat": {"loop": true},
 	"grap": {"loop": true},
 	"fall": {"loop": true},
 	"down": {"loop": true},
 	"tumbleDown": {"loop": true},
 	"hurt": {"fps": 4.0},
-	"act1": {"fps": 12.0, "hitWindow": [0.05, 0.15]},
-	"act2": {"fps": 12.0, "hitWindow": [0.05, 0.15]},
-	"act3": {"fps": 12.0, "hitWindow": [0.10, 0.23]},
+	"act1": {"fps": 12.0, "hitWindow": [0.03, 0.13]},
+	"act2": {"fps": 12.0, "hitWindow": [0.03, 0.13]},
+	"act3": {"fps": 12.0, "hitWindow": [0.03, 0.15]},
 	"jumpAttack": {"fps": 12.0, "hitWindow": [0.02, 0.07]},
+	"jumpKick": {"fps": 12.0, "hitWindow": [0.03, 0.11]},
 	"act4": {"fps": 14.0, "hitWindow": [0.10, 0.26]},
 	"act5": {"fps": 14.0, "hitWindow": [0.20, 0.41]},
 	"throw": {"fps": 12.0, "hitWindow": [0.10, 0.15]},
@@ -27,8 +30,7 @@ const MOVE_OVERRIDES: Dictionary = {
 ## 美术补回同名贴图后，只需在 SpriteFrames 里加回同名动画并重新生成 player/tree，
 ## 这些参数会自动生效，无需再改代码。
 const RESERVED_OVERRIDES: Dictionary = {
-	"squatAttack": {"fps": 12.0, "hitWindow": [0.10, 0.23]},
-	"jumpKick": {"fps": 12.0, "hitWindow": [0.03, 0.15]},
+	"squatAttack": {"fps": 12.0, "hitWindow": [0.03, 0.15]},
 	"act7": {"fps": 14.0, "hitWindow": [0.12, 0.26]},
 	"act8": {"fps": 14.0, "hitWindow": [0.15, 0.26]},
 	"act9": {"fps": 16.0, "hitWindow": [0.12, 0.35]},

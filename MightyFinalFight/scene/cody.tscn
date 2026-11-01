@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://df0d4vdj484bb" path="res://scene/object.tscn" id="5"]
 [ext_resource type="Texture2D" uid="uid://tqdfcpttoler" path="res://sprite/player/man_jump2.png" id="10_3thuh"]
 [ext_resource type="Texture2D" uid="uid://cb5alixbv0cul" path="res://sprite/player/man_fight8.png" id="11_uufv6"]
-[ext_resource type="Texture2D" uid="uid://bhiwt6xttro3u" path="res://sprite/player/man_grap1.png" id="12_qiqje"]
 [ext_resource type="Texture2D" uid="uid://yghxeinn8t5s" path="res://sprite/player/man_jump3.png" id="13_rc788"]
 [ext_resource type="Texture2D" uid="uid://3rof6eytxlgx" path="res://sprite/player/man_hit2.png" id="13_uufv6"]
 [ext_resource type="Texture2D" uid="uid://bddya06x6savp" path="res://sprite/player/man_jump4.png" id="14_p2bam"]
@@ -23,10 +22,10 @@
 [ext_resource type="Resource" path="res://data/combos/cody/skill2_leftright.tres" id="42"]
 [ext_resource type="Resource" path="res://data/combos/cody/skill2_rightleft.tres" id="43"]
 [ext_resource type="Resource" path="res://data/combos/cody/skill3.tres" id="44"]
-[ext_resource type="AnimationLibrary" uid="uid://cfa6jf0ewb4ot" path="res://data/anims/cody_library.tres" id="77"]
-[ext_resource type="AnimationNodeStateMachine" uid="uid://da0fubhmcmws5" path="res://data/anims/cody_state_machine.tres" id="78"]
 [ext_resource type="Resource" path="res://data/shapes/cody_hurt_shapes.tres" id="50"]
 [ext_resource type="Resource" path="res://data/shapes/cody_hit_shapes.tres" id="51"]
+[ext_resource type="AnimationLibrary" uid="uid://cfa6jf0ewb4ot" path="res://data/anims/cody_library.tres" id="77"]
+[ext_resource type="AnimationNodeStateMachine" uid="uid://da0fubhmcmws5" path="res://data/anims/cody_state_machine.tres" id="78"]
 
 [sub_resource type="AtlasTexture" id="21"]
 atlas = ExtResource("2")
@@ -272,18 +271,9 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("16")
-}, {
-"duration": 1.0,
-"texture": SubResource("17")
-}, {
-"duration": 1.0,
-"texture": SubResource("18")
-}, {
-"duration": 1.0,
 "texture": SubResource("19")
 }],
-"loop": 0,
+"loop": 1,
 "name": &"fall",
 "speed": 6.0
 }, {
@@ -316,11 +306,39 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("12_qiqje")
+"texture": SubResource("32")
+}, {
+"duration": 1.0,
+"texture": SubResource("33")
 }],
 "loop": 0,
 "name": &"jumpAttack",
-"speed": 5.0
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("30")
+}, {
+"duration": 1.0,
+"texture": SubResource("31")
+}],
+"loop": 0,
+"name": &"jumpKick",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("16")
+}, {
+"duration": 1.0,
+"texture": SubResource("17")
+}, {
+"duration": 1.0,
+"texture": SubResource("18")
+}],
+"loop": 1,
+"name": &"jumpRoll",
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -403,6 +421,11 @@ size = Vector2(16, 4)
 
 [node name="object" unique_id=786363822 instance=ExtResource("5")]
 script = ExtResource("1")
+hp = 64
+maxHp = 64
+speed = 78.0
+jumpSpeed = 300.0
+gravity = 1008.0
 combos = Array[ExtResource("3_csu43")]([ExtResource("40"), ExtResource("41"), ExtResource("42"), ExtResource("43"), ExtResource("44")])
 skillAnims = {
 "skill1": "act5",
@@ -412,7 +435,7 @@ skillAnims = {
 
 [node name="ani" parent="body" parent_id_path=PackedInt32Array(1764813662) index="0" unique_id=728702930]
 sprite_frames = SubResource("7")
-animation = &"knockAway"
+animation = &""
 
 [node name="hurtBox" parent="body" parent_id_path=PackedInt32Array(1764813662) index="1" unique_id=338879663]
 visible = false

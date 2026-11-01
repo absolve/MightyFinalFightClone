@@ -30,6 +30,6 @@ handle_flip_h = false
 [node name="hitShape" type="Node" parent="." unique_id=2077384616 node_paths=PackedStringArray("animated_sprite")]
 script = ExtResource("2_shape")
 animated_sprite = NodePath("../body/ani")
-handle_flip_h = false
+handle_flip_h = true
 use_initial_as_fallback = false
 use_previous_as_fallback = true

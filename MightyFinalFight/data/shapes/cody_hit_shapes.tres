@@ -1,6 +1,57 @@
-[gd_resource type="Resource" script_class="ShapeFrames2D" format=3]
+[gd_resource type="Resource" script_class="ShapeFrames2D" format=3 uid="uid://cflkfd4jsujyc"]
 
-[ext_resource type="Script" path="res://addons/goutte.animated_shape_2d/shape_frames_2d.gd" id="1_ux4xd"]
+[ext_resource type="Script" uid="uid://c4le8h5gfqmqc" path="res://addons/goutte.animated_shape_2d/shape_frame_2d.gd" id="1_sf"]
+[ext_resource type="Script" uid="uid://b8jnlametnv51" path="res://addons/goutte.animated_shape_2d/shape_frames_2d.gd" id="2_sfs"]
+
+[sub_resource type="RectangleShape2D" id="Rect_light"]
+size = Vector2(16, 14)
+
+[sub_resource type="Resource" id="SF_light"]
+script = ExtResource("1_sf")
+position = Vector2(24, -10)
+shape = SubResource("Rect_light")
+
+[sub_resource type="RectangleShape2D" id="Rect_heavy"]
+size = Vector2(20, 16)
+
+[sub_resource type="Resource" id="SF_heavy"]
+script = ExtResource("1_sf")
+position = Vector2(26, -10)
+shape = SubResource("Rect_heavy")
+
+[sub_resource type="RectangleShape2D" id="Rect_skill"]
+size = Vector2(22, 18)
+
+[sub_resource type="Resource" id="SF_skill"]
+script = ExtResource("1_sf")
+position = Vector2(28, -12)
+shape = SubResource("Rect_skill")
+
+[sub_resource type="RectangleShape2D" id="Rect_air"]
+size = Vector2(18, 16)
+
+[sub_resource type="Resource" id="SF_air"]
+script = ExtResource("1_sf")
+position = Vector2(22, -10)
+shape = SubResource("Rect_air")
+
+[sub_resource type="RectangleShape2D" id="Rect_kick"]
+size = Vector2(22, 16)
+
+[sub_resource type="Resource" id="SF_kick"]
+script = ExtResource("1_sf")
+position = Vector2(24, -10)
+shape = SubResource("Rect_kick")
 
 [resource]
-script = ExtResource("1_ux4xd")
+script = ExtResource("2_sfs")
+data = {
+&"act1": [SubResource("SF_light"), SubResource("SF_light")],
+&"act2": [SubResource("SF_light"), SubResource("SF_light")],
+&"act3": [SubResource("SF_heavy"), SubResource("SF_heavy"), SubResource("SF_heavy")],
+&"act4": [SubResource("SF_skill"), SubResource("SF_skill"), SubResource("SF_skill"), SubResource("SF_skill")],
+&"act5": [SubResource("SF_skill"), SubResource("SF_skill"), SubResource("SF_skill"), SubResource("SF_skill"), SubResource("SF_skill"), SubResource("SF_skill")],
+&"jumpAttack": [SubResource("SF_air"), SubResource("SF_air")],
+&"jumpKick": [SubResource("SF_kick"), SubResource("SF_kick")],
+&"throw": [SubResource("SF_skill"), SubResource("SF_skill")]
+}

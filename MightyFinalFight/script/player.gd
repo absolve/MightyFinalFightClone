@@ -9,6 +9,13 @@ class_name Player
 ## 关卡用来统一写入可活动范围的节点分组
 const GROUP: StringName = &"players"
 
+## 三段连击每段伤害（原作按角色不同：Cody 2/3/12、Guy 1/5/3、Haggar 6/4/10）
+@export var comboDamage: Array[int] = [2, 3, 12]
+## 蹲击（下+拳）伤害
+@export var squatDamage: int = 2
+## 跳跃攻击伤害（原作 Cody 4 / Guy 5 / Haggar 10）
+@export var airAttackDamage: int = 4
+
 # 录入搓招缓冲的动作名（不含玩家前缀）
 const RECORD_ACTIONS: Array[StringName] = [&"up", &"down", &"left", &"right", &"punch", &"jump"]
 

@@ -1,18 +1,77 @@
-[gd_resource type="Resource" script_class="ShapeFrames2D" format=3]
+[gd_resource type="Resource" script_class="ShapeFrames2D" format=3 uid="uid://qsdws04k8nb6"]
 
-[ext_resource type="Script" path="res://addons/goutte.animated_shape_2d/shape_frame_2d.gd" id="1_xnuer"]
-[ext_resource type="Script" path="res://addons/goutte.animated_shape_2d/shape_frames_2d.gd" id="2_rib2k"]
+[ext_resource type="Script" uid="uid://c4le8h5gfqmqc" path="res://addons/goutte.animated_shape_2d/shape_frame_2d.gd" id="1_sf"]
+[ext_resource type="Script" uid="uid://b8jnlametnv51" path="res://addons/goutte.animated_shape_2d/shape_frames_2d.gd" id="2_sfs"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_x8hnw"]
+[sub_resource type="RectangleShape2D" id="Rect_body"]
 size = Vector2(26, 40)
 
-[sub_resource type="Resource" id="Resource_agg1n"]
-script = ExtResource("1_xnuer")
+[sub_resource type="Resource" id="SF_body"]
+script = ExtResource("1_sf")
 position = Vector2(0, -2)
-shape = SubResource("RectangleShape2D_x8hnw")
+shape = SubResource("Rect_body")
+
+[sub_resource type="RectangleShape2D" id="Rect_squat"]
+size = Vector2(26, 24)
+
+[sub_resource type="Resource" id="SF_squat"]
+script = ExtResource("1_sf")
+position = Vector2(0, 2)
+shape = SubResource("Rect_squat")
+
+[sub_resource type="RectangleShape2D" id="Rect_air"]
+size = Vector2(22, 28)
+
+[sub_resource type="Resource" id="SF_air"]
+script = ExtResource("1_sf")
+position = Vector2(0, -4)
+shape = SubResource("Rect_air")
+
+[sub_resource type="RectangleShape2D" id="Rect_roll"]
+size = Vector2(28, 22)
+
+[sub_resource type="Resource" id="SF_roll"]
+script = ExtResource("1_sf")
+position = Vector2(0, -2)
+shape = SubResource("Rect_roll")
+
+[sub_resource type="RectangleShape2D" id="Rect_hurt"]
+size = Vector2(28, 34)
+
+[sub_resource type="Resource" id="SF_hurt"]
+script = ExtResource("1_sf")
+shape = SubResource("Rect_hurt")
+
+[sub_resource type="RectangleShape2D" id="Rect_down"]
+size = Vector2(34, 14)
+
+[sub_resource type="Resource" id="SF_down"]
+script = ExtResource("1_sf")
+position = Vector2(0, 8)
+shape = SubResource("Rect_down")
 
 [resource]
-script = ExtResource("2_rib2k")
+script = ExtResource("2_sfs")
 data = {
-&"default": [SubResource("Resource_agg1n")]
+&"act1": [SubResource("SF_body"), SubResource("SF_body")],
+&"act2": [SubResource("SF_body"), SubResource("SF_body")],
+&"act3": [SubResource("SF_body"), SubResource("SF_body"), SubResource("SF_body")],
+&"act4": [SubResource("SF_body"), SubResource("SF_body"), SubResource("SF_body"), SubResource("SF_body")],
+&"act5": [SubResource("SF_body"), SubResource("SF_body"), SubResource("SF_body"), SubResource("SF_body"), SubResource("SF_body"), SubResource("SF_body")],
+&"default": [SubResource("SF_body")],
+&"down": [SubResource("SF_down")],
+&"down2": [SubResource("SF_down")],
+&"fall": [SubResource("SF_air")],
+&"grap": [SubResource("SF_body"), SubResource("SF_body")],
+&"hurt": [SubResource("SF_hurt")],
+&"jump": [SubResource("SF_air")],
+&"jumpAttack": [SubResource("SF_air"), SubResource("SF_air")],
+&"jumpKick": [SubResource("SF_air"), SubResource("SF_air")],
+&"jumpRoll": [SubResource("SF_roll"), SubResource("SF_roll"), SubResource("SF_roll")],
+&"knockAway": [SubResource("SF_down")],
+&"squat": [SubResource("SF_squat")],
+&"throw": [SubResource("SF_body"), SubResource("SF_body")],
+&"tumbleDown": [SubResource("SF_down"), SubResource("SF_down"), SubResource("SF_down")],
+&"wake": [SubResource("SF_body"), SubResource("SF_body")],
+&"walk": [SubResource("SF_body"), SubResource("SF_body"), SubResource("SF_body"), SubResource("SF_body")]
 }

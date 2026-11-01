@@ -1,0 +1,247 @@
+[gd_resource type="SpriteFrames" format=3]
+
+[ext_resource type="Texture2D" path="res://sprite/player/Haggar_01_12x5.png" id="1"]
+
+[sub_resource type="AtlasTexture" id="H_7"]
+atlas = ExtResource("1")
+region = Rect2(287, 0, 41, 42)
+
+[sub_resource type="AtlasTexture" id="H_8"]
+atlas = ExtResource("1")
+region = Rect2(328, 0, 41, 42)
+
+[sub_resource type="AtlasTexture" id="H_12"]
+atlas = ExtResource("1")
+region = Rect2(0, 42, 41, 42)
+
+[sub_resource type="AtlasTexture" id="H_13"]
+atlas = ExtResource("1")
+region = Rect2(41, 42, 41, 42)
+
+[sub_resource type="AtlasTexture" id="H_34"]
+atlas = ExtResource("1")
+region = Rect2(410, 84, 41, 42)
+
+[sub_resource type="AtlasTexture" id="H_35"]
+atlas = ExtResource("1")
+region = Rect2(451, 84, 41, 42)
+
+[sub_resource type="AtlasTexture" id="H_32"]
+atlas = ExtResource("1")
+region = Rect2(328, 84, 41, 42)
+
+[sub_resource type="AtlasTexture" id="H_33"]
+atlas = ExtResource("1")
+region = Rect2(369, 84, 41, 42)
+
+[sub_resource type="AtlasTexture" id="H_31"]
+atlas = ExtResource("1")
+region = Rect2(287, 84, 41, 42)
+
+[sub_resource type="AtlasTexture" id="H_26"]
+atlas = ExtResource("1")
+region = Rect2(82, 84, 41, 42)
+
+[sub_resource type="AtlasTexture" id="H_28"]
+atlas = ExtResource("1")
+region = Rect2(164, 84, 41, 42)
+
+[sub_resource type="AtlasTexture" id="H_36"]
+atlas = ExtResource("1")
+region = Rect2(0, 126, 41, 42)
+
+[sub_resource type="AtlasTexture" id="H_37"]
+atlas = ExtResource("1")
+region = Rect2(41, 126, 41, 42)
+
+[sub_resource type="AtlasTexture" id="H_0"]
+atlas = ExtResource("1")
+region = Rect2(0, 0, 41, 42)
+
+[sub_resource type="AtlasTexture" id="H_1"]
+atlas = ExtResource("1")
+region = Rect2(41, 0, 41, 42)
+
+[sub_resource type="AtlasTexture" id="H_14"]
+atlas = ExtResource("1")
+region = Rect2(82, 42, 41, 42)
+
+[sub_resource type="AtlasTexture" id="H_15"]
+atlas = ExtResource("1")
+region = Rect2(123, 42, 41, 42)
+
+[sub_resource type="AtlasTexture" id="H_41"]
+atlas = ExtResource("1")
+region = Rect2(205, 126, 41, 42)
+
+[sub_resource type="AtlasTexture" id="H_25"]
+atlas = ExtResource("1")
+region = Rect2(41, 84, 41, 42)
+
+[sub_resource type="AtlasTexture" id="H_20"]
+atlas = ExtResource("1")
+region = Rect2(328, 42, 41, 42)
+
+[sub_resource type="AtlasTexture" id="H_39"]
+atlas = ExtResource("1")
+region = Rect2(123, 126, 41, 42)
+
+[sub_resource type="AtlasTexture" id="H_40"]
+atlas = ExtResource("1")
+region = Rect2(164, 126, 41, 42)
+
+[sub_resource type="AtlasTexture" id="H_29"]
+atlas = ExtResource("1")
+region = Rect2(205, 84, 41, 42)
+
+[sub_resource type="AtlasTexture" id="H_16"]
+atlas = ExtResource("1")
+region = Rect2(164, 42, 41, 42)
+
+[sub_resource type="AtlasTexture" id="H_30"]
+atlas = ExtResource("1")
+region = Rect2(246, 84, 41, 42)
+
+[sub_resource type="AtlasTexture" id="H_17"]
+atlas = ExtResource("1")
+region = Rect2(205, 42, 41, 42)
+
+[sub_resource type="AtlasTexture" id="H_2"]
+atlas = ExtResource("1")
+region = Rect2(82, 0, 41, 42)
+
+[sub_resource type="AtlasTexture" id="H_3"]
+atlas = ExtResource("1")
+region = Rect2(123, 0, 41, 42)
+
+[sub_resource type="AtlasTexture" id="H_4"]
+atlas = ExtResource("1")
+region = Rect2(164, 0, 41, 42)
+
+[sub_resource type="AtlasTexture" id="H_5"]
+atlas = ExtResource("1")
+region = Rect2(205, 0, 41, 42)
+
+[resource]
+animations = [
+{
+"frames": [SubResource("H_7"), SubResource("H_8")],
+"loop": 0,
+"name": &"act1",
+"speed": 12.0
+},
+{
+"frames": [SubResource("H_12"), SubResource("H_13")],
+"loop": 0,
+"name": &"act2",
+"speed": 12.0
+},
+{
+"frames": [SubResource("H_34"), SubResource("H_35")],
+"loop": 0,
+"name": &"act3",
+"speed": 12.0
+},
+{
+"frames": [SubResource("H_32"), SubResource("H_33"), SubResource("H_34")],
+"loop": 0,
+"name": &"act4",
+"speed": 12.0
+},
+{
+"frames": [SubResource("H_31"), SubResource("H_26"), SubResource("H_28")],
+"loop": 0,
+"name": &"act5",
+"speed": 12.0
+},
+{
+"frames": [SubResource("H_36"), SubResource("H_37")],
+"loop": 0,
+"name": &"act7",
+"speed": 12.0
+},
+{
+"frames": [SubResource("H_0"), SubResource("H_1")],
+"loop": 1,
+"name": &"default",
+"speed": 6.0
+},
+{
+"frames": [SubResource("H_14"), SubResource("H_15")],
+"loop": 1,
+"name": &"down",
+"speed": 12.0
+},
+{
+"frames": [SubResource("H_41")],
+"loop": 1,
+"name": &"fall",
+"speed": 12.0
+},
+{
+"frames": [SubResource("H_25"), SubResource("H_26")],
+"loop": 1,
+"name": &"grap",
+"speed": 12.0
+},
+{
+"frames": [SubResource("H_20")],
+"loop": 0,
+"name": &"hurt",
+"speed": 4.0
+},
+{
+"frames": [SubResource("H_39")],
+"loop": 1,
+"name": &"jump",
+"speed": 12.0
+},
+{
+"frames": [SubResource("H_39"), SubResource("H_40")],
+"loop": 0,
+"name": &"jumpAttack",
+"speed": 12.0
+},
+{
+"frames": [SubResource("H_29"), SubResource("H_39")],
+"loop": 0,
+"name": &"jumpKick",
+"speed": 12.0
+},
+{
+"frames": [SubResource("H_40"), SubResource("H_39")],
+"loop": 1,
+"name": &"jumpRoll",
+"speed": 12.0
+},
+{
+"frames": [SubResource("H_16")],
+"loop": 1,
+"name": &"squat",
+"speed": 12.0
+},
+{
+"frames": [SubResource("H_30"), SubResource("H_31")],
+"loop": 0,
+"name": &"squatAttack",
+"speed": 12.0
+},
+{
+"frames": [SubResource("H_29"), SubResource("H_30")],
+"loop": 1,
+"name": &"throw",
+"speed": 12.0
+},
+{
+"frames": [SubResource("H_17"), SubResource("H_12")],
+"loop": 1,
+"name": &"wake",
+"speed": 12.0
+},
+{
+"frames": [SubResource("H_2"), SubResource("H_3"), SubResource("H_4"), SubResource("H_5")],
+"loop": 1,
+"name": &"walk",
+"speed": 10.0
+}
+]
