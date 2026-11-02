@@ -7,6 +7,9 @@ const HURT_TIME: float = 0.35
 const KNOCKBACK_SPEED: float = 180.0
 const KNOCKBACK_DECAY: float = 1200.0
 
+## 硬直结束后回到的状态节点名：杂兵回待机，Boss 场景改回接近
+@export var returnStatePath: NodePath = NodePath("idleState")
+
 var elapsed: float = 0.0
 var pushDir: int = 0
 var pushSpeed: float = 0.0
@@ -30,7 +33,7 @@ func physics_update(delta: float) -> void:
 		obj.moveSelf()
 		obj.clampToBounds()
 	if elapsed >= HURT_TIME:
-		stateMachineNode.transition_to("idleState")
+		stateMachineNode.transition_to(String(returnStatePath))
 
 
 func exit() -> void:

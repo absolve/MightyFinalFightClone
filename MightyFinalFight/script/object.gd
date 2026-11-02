@@ -13,7 +13,7 @@ class_name FightObject
 signal hpChanged(currentHp: int)
 signal hitLanded(target: FightObject)
 
-const DAMAGE_NUMBER_SCENE: PackedScene = preload("res://scene/damage_number.tscn")
+const DAMAGE_NUMBER_SCENE: PackedScene = preload("res://scene/fx/damage_number.tscn")
 
 @export var hp: int = 100
 @export var maxHp: int = 100

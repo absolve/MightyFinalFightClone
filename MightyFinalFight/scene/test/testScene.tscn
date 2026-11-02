@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3]
 
-[ext_resource type="PackedScene" path="res://scene/cody.tscn" id="1"]
+[ext_resource type="PackedScene" path="res://scene/player/cody.tscn" id="1"]
 
 [node name="testScene" type="Node2D"]
 y_sort_enabled = true

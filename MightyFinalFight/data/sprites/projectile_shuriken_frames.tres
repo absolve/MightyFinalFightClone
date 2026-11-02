@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3]
+
+[ext_resource type="Texture2D" path="res://sprite/player/Guy_shuriken_4x1.png" id="1"]
+
+[sub_resource type="AtlasTexture" id="s0"]
+atlas = ExtResource("1")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="s1"]
+atlas = ExtResource("1")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="s2"]
+atlas = ExtResource("1")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="s3"]
+atlas = ExtResource("1")
+region = Rect2(48, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("s0")
+}, {
+"duration": 1.0,
+"texture": SubResource("s1")
+}, {
+"duration": 1.0,
+"texture": SubResource("s2")
+}, {
+"duration": 1.0,
+"texture": SubResource("s3")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 18.0
+}]

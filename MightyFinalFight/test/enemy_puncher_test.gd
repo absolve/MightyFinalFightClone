@@ -8,8 +8,8 @@ extends Node
 ## 玩家反击命中敌人（受击硬直、扣血）、敌人被打死倒下并被移除。
 ## 时序断言一律轮询，理由见 player_ops_test.gd 顶部说明。
 
-const CODY_SCENE: PackedScene = preload("res://scene/cody.tscn")
-const ENEMY_SCENE: PackedScene = preload("res://scene/enemy_puncher.tscn")
+const CODY_SCENE: PackedScene = preload("res://scene/player/cody.tscn")
+const ENEMY_SCENE: PackedScene = preload("res://scene/enemy/enemy_puncher.tscn")
 const SPAWN_POS: Vector2 = Vector2(240, 380)
 ## 首次生成的横向距离：超出 aggroRange(260)，用来先验「无人可打就守卫」
 const ENEMY_START_DX: float = 320.0

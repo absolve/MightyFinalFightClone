@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3]
+
+[ext_resource type="Texture2D" path="res://sprite/player/Cody_106_5x1.png" id="1"]
+
+[sub_resource type="AtlasTexture" id="w0"]
+atlas = ExtResource("1")
+region = Rect2(14, 0, 14, 23)
+
+[sub_resource type="AtlasTexture" id="w1"]
+atlas = ExtResource("1")
+region = Rect2(28, 0, 14, 23)
+
+[sub_resource type="AtlasTexture" id="w2"]
+atlas = ExtResource("1")
+region = Rect2(42, 0, 14, 23)
+
+[sub_resource type="AtlasTexture" id="w3"]
+atlas = ExtResource("1")
+region = Rect2(56, 0, 14, 23)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("w0")
+}, {
+"duration": 1.0,
+"texture": SubResource("w1")
+}, {
+"duration": 1.0,
+"texture": SubResource("w2")
+}, {
+"duration": 1.0,
+"texture": SubResource("w3")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 12.0
+}]

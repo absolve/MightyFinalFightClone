@@ -1,7 +1,10 @@
 extends State
 class_name EnemyChaseState
 ## 敌人追击：朝玩家的横向与纵深位置靠拢（纵深按 depthSpeedFactor 减速），
-## 进入出拳判定距离就交给 attackState；目标丢失则回待机。
+## 进入出拳判定距离就交给出手状态；目标丢失则回待机。
+
+## 够得着时转入的出手状态节点名，与 EnemyIdleState 同名配置
+@export var attackStatePath: NodePath = NodePath("attackState")
 
 var enemy: Enemy
 
@@ -20,7 +23,7 @@ func physics_update(_delta: float) -> void:
 		obj.vec = Vector2.ZERO
 		obj.playAnim(&"default")
 		if enemy.canAttack():
-			stateMachineNode.transition_to("attackState")
+			stateMachineNode.transition_to(String(attackStatePath))
 		return
 	var dir: Vector2 = enemy.directionTo(enemy.target)
 	obj.setFaceDir(dir.x)
@@ -28,6 +31,6 @@ func physics_update(_delta: float) -> void:
 	obj.moveSelf()
 	obj.clampToBounds()
 	if enemy.canAttack():
-		stateMachineNode.transition_to("attackState")
+		stateMachineNode.transition_to(String(attackStatePath))
 	elif enemy.lateralDistance(enemy.target) > enemy.aggroRange:
 		stateMachineNode.transition_to("idleState")

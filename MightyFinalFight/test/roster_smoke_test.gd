@@ -7,9 +7,9 @@ extends Node
 ## 每个角色验：状态机起得来、走/跳/翻滚/空中攻击/三段连击/蹲击/必杀都能出动作与伤害、
 ## 受击与倒地能回待机；顺带验一次和出拳杂兵互殴（杂兵当木桩：速度 0、不出拳）。
 ## 断言全部按角色自身数据（comboDamage / airAttackDamage / maxHp）算，
-## 所以新增角色只要进 scene/combatTest.tscn 的 playerScenes 数组就会被自动覆盖。
+## 所以新增角色只要进 scene/test/combatTest.tscn 的 playerScenes 数组就会被自动覆盖。
 
-const ENEMY_SCENE: PackedScene = preload("res://scene/enemy_puncher.tscn")
+const ENEMY_SCENE: PackedScene = preload("res://scene/enemy/enemy_puncher.tscn")
 const START_POS: Vector2 = Vector2(240, 380)
 const P1_KEYS: Array[String] = ["p1_left", "p1_right", "p1_up", "p1_down", "p1_punch", "p1_jump"]
 
@@ -21,7 +21,7 @@ var dummy: Enemy
 func _ready() -> void:
 	await frames(2)
 	print("================ 角色冒烟测试 ================")
-	var sandbox: CombatTest = (load("res://scene/combatTest.tscn") as PackedScene).instantiate()
+	var sandbox: CombatTest = (load("res://scene/test/combatTest.tscn") as PackedScene).instantiate()
 	add_child(sandbox)
 	await frames(4)
 	check(not sandbox.playerScenes.is_empty(), "沙盒 roster 里配了角色场景")

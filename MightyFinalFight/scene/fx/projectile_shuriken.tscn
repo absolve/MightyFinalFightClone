@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="PackedScene" path="res://scene/fx/projectile.tscn" id="1"]
+[ext_resource type="SpriteFrames" path="res://data/sprites/projectile_shuriken_frames.tres" id="2"]
+
+[sub_resource type="RectangleShape2D" id="shuriken_rect"]
+size = Vector2(10, 10)
+
+[node name="Projectile" instance=ExtResource("1")]
+damage = 6
+speed = 360.0
+lifeTime = 1.4
+
+[node name="Ani" parent="." index="0"]
+sprite_frames = ExtResource("2")
+
+[node name="Shape" parent="." index="1"]
+shape = SubResource("shuriken_rect")

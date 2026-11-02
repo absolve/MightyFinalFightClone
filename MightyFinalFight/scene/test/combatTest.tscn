@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://script/combat_test.gd" id="1"]
 [ext_resource type="Texture2D" path="res://sprite/bg/Round 1.png" id="2"]
-[ext_resource type="PackedScene" path="res://scene/cody.tscn" id="3"]
-[ext_resource type="PackedScene" path="res://scene/guy.tscn" id="4"]
-[ext_resource type="PackedScene" path="res://scene/haggar.tscn" id="5"]
-[ext_resource type="PackedScene" path="res://scene/enemy_puncher.tscn" id="6"]
-[ext_resource type="PackedScene" path="res://scene/hud.tscn" id="7"]
+[ext_resource type="PackedScene" path="res://scene/player/cody.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://scene/player/guy.tscn" id="4"]
+[ext_resource type="PackedScene" path="res://scene/player/haggar.tscn" id="5"]
+[ext_resource type="PackedScene" path="res://scene/enemy/enemy_puncher.tscn" id="6"]
+[ext_resource type="PackedScene" path="res://scene/ui/hud.tscn" id="7"]
 
 [sub_resource type="LabelSettings" id="debugText"]
 font_size = 12

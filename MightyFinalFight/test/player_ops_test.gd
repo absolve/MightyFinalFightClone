@@ -21,7 +21,7 @@ extends Node
 ## 时序断言一律轮询（waitNode/waitState/waitIdle）：playback.start() 要下一帧
 ## 才反映到 get_current_node()，按精确帧数对齐会假失败。
 
-const CODY_SCENE: PackedScene = preload("res://scene/cody.tscn")
+const CODY_SCENE: PackedScene = preload("res://scene/player/cody.tscn")
 const START_POS: Vector2 = Vector2(320, 380)
 ## 靶子与玩家的横向距离：落在攻击框（x 16~32）与受击框（±13）的重叠区内
 const DUMMY_DX: float = 26.0

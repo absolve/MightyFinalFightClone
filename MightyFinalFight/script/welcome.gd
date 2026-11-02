@@ -1,6 +1,6 @@
 extends Node2D
 
-const STAGE1_SCENE: String = "res://scene/stage1.tscn"
+const STAGE1_SCENE: String = "res://scene/level/stage1.tscn"
 
 
 func _ready() -> void:

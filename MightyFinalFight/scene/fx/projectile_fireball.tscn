@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="PackedScene" path="res://scene/fx/projectile.tscn" id="1"]
+[ext_resource type="SpriteFrames" path="res://data/sprites/projectile_fireball_frames.tres" id="2"]
+
+[sub_resource type="RectangleShape2D" id="fireball_rect"]
+size = Vector2(12, 20)
+
+[node name="Projectile" instance=ExtResource("1")]
+damage = 8
+speed = 180.0
+lifeTime = 2.5
+
+[node name="Ani" parent="." index="0"]
+sprite_frames = ExtResource("2")
+
+[node name="Shape" parent="." index="1"]
+shape = SubResource("fireball_rect")
