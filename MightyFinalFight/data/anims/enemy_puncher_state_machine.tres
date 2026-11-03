@@ -1,4 +1,4 @@
-[gd_resource type="AnimationNodeStateMachine" format=3]
+[gd_resource type="AnimationNodeStateMachine" format=3 uid="uid://b1afmlmo0rtn"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ao787"]
 animation = &"act1"

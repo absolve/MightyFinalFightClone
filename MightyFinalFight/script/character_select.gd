@@ -150,10 +150,9 @@ func buildCards() -> void:
 		portrait.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		portrait.size = CARD_SIZE
 		card.add_child(portrait)
-		var nameNode: Label = makeLabel(Game.characterNames[index], Vector2(0, CARD_SIZE.y - 16))
+		var nameNode: Label = makeLabel(Game.characterNames[index], Vector2(0, CARD_SIZE.y - 16), card)
 		nameNode.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		nameNode.size.x = CARD_SIZE.x
-		card.add_child(nameNode)
 		cardNodes.append(card)
 
 
@@ -173,12 +172,12 @@ func buildStatus() -> void:
 	statusNode.size.x = 640
 
 
-func makeLabel(text: String, corner: Vector2) -> Label:
+func makeLabel(text: String, corner: Vector2, parent: Node = null) -> Label:
 	var node: Label = Label.new()
 	node.text = text
 	node.position = corner
 	node.label_settings = labelSettings
-	add_child(node)
+	(parent if parent else self).add_child(node)
 	return node
 
 

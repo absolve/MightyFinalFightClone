@@ -1,8 +1,8 @@
-[gd_scene load_steps=22 format=3]
+[gd_scene format=3 uid="uid://bcch1d2v51re0"]
 
-[ext_resource type="Script" path="res://script/haggar.gd" id="1"]
+[ext_resource type="Script" uid="uid://c53dicjn2drn3" path="res://script/haggar.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://df0d4vdj484bb" path="res://scene/base/object.tscn" id="2"]
-[ext_resource type="SpriteFrames" path="res://data/sprites/haggar_frames.tres" id="3"]
+[ext_resource type="SpriteFrames" uid="uid://3qhh0iwvyi4g" path="res://data/sprites/haggar_frames.tres" id="3"]
 [ext_resource type="Script" uid="uid://v51hjiuhcw8" path="res://script/combo_def.gd" id="4"]
 [ext_resource type="PackedScene" path="res://scene/base/stateMachine.tscn" id="5"]
 [ext_resource type="Script" uid="uid://2j2jbf07a5y6" path="res://script/states/idle_state.gd" id="6"]
@@ -16,8 +16,8 @@
 [ext_resource type="Resource" path="res://data/combos/cody/skill2_leftright.tres" id="14"]
 [ext_resource type="Resource" path="res://data/combos/cody/skill2_rightleft.tres" id="15"]
 [ext_resource type="Resource" path="res://data/combos/cody/skill3.tres" id="16"]
-[ext_resource type="AnimationLibrary" path="res://data/anims/haggar_library.tres" id="17"]
-[ext_resource type="AnimationNodeStateMachine" path="res://data/anims/haggar_state_machine.tres" id="18"]
+[ext_resource type="AnimationLibrary" uid="uid://cjmb3teqm114m" path="res://data/anims/haggar_library.tres" id="17"]
+[ext_resource type="AnimationNodeStateMachine" uid="uid://cko26bv8i2s6x" path="res://data/anims/haggar_state_machine.tres" id="18"]
 
 [sub_resource type="RectangleShape2D" id="hurt_rect"]
 size = Vector2(26, 38)
@@ -28,72 +28,76 @@ size = Vector2(18, 16)
 [sub_resource type="RectangleShape2D" id="body_rect"]
 size = Vector2(16, 4)
 
-[node name="object" instance=ExtResource("2")]
+[node name="object" unique_id=93074714 instance=ExtResource("2")]
 script = ExtResource("1")
+comboDamage = Array[int]([6, 4, 10])
+squatDamage = 6
+airAttackDamage = 10
 hp = 80
 maxHp = 80
-damageNumberColor = Color(1, 0.2, 0.2, 1)
 attack = 6
 speed = 68.0
 jumpSpeed = 300.0
 gravity = 1008.0
-comboDamage = Array[int]([6, 4, 10])
-squatDamage = 6
-airAttackDamage = 10
 combos = Array[ExtResource("4")]([ExtResource("12"), ExtResource("13"), ExtResource("14"), ExtResource("15"), ExtResource("16")])
-skillAnims = { "skill1": "act5", "skill2": "act4", "skill3": "act7" }
+skillAnims = {
+"skill1": "act5",
+"skill2": "act4",
+"skill3": "act7"
+}
+damageNumberColor = Color(1, 0.2, 0.2, 1)
 
-[node name="ani" parent="body" index="0"]
+[node name="ani" parent="body" parent_id_path=PackedInt32Array(1764813662) index="0" unique_id=728702930]
 sprite_frames = ExtResource("3")
+animation = &""
 
-[node name="hurtBox" parent="body" index="1"]
-collision_layer = 1
+[node name="hurtBox" parent="body" parent_id_path=PackedInt32Array(1764813662) index="1" unique_id=338879663]
 collision_mask = 0
 monitoring = false
 
-[node name="shape" type="CollisionShape2D" parent="body/hurtBox" index="0"]
+[node name="shape" type="CollisionShape2D" parent="body/hurtBox" index="0" unique_id=768761857]
 position = Vector2(0, -2)
 shape = SubResource("hurt_rect")
 
-[node name="hitBox" parent="body" index="2"]
+[node name="hitBox" parent="body" parent_id_path=PackedInt32Array(1764813662) index="2" unique_id=1266483350]
 position = Vector2(24, -8)
 collision_layer = 2
 collision_mask = 4
 monitorable = false
 
-[node name="shape" type="CollisionShape2D" parent="body/hitBox" index="0"]
+[node name="shape" type="CollisionShape2D" parent="body/hitBox" index="0" unique_id=1447357862]
 shape = SubResource("hit_rect")
 
-[node name="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" parent="." index="1" unique_id=1879740650]
 position = Vector2(0, 14)
 shape = SubResource("body_rect")
 
-[node name="player" parent="." index="2"]
+[node name="player" parent="." index="2" unique_id=1762041987]
 libraries/ = ExtResource("17")
 
-[node name="tree" parent="." index="3"]
+[node name="tree" parent="." index="3" unique_id=1366713045]
 tree_root = ExtResource("18")
 
-[node name="hitShape" parent="." index="5"]
+[node name="hitShape" parent="." index="5" unique_id=2077384616]
 handle_flip_h = false
 
-[node name="stateMachine" parent="." index="6" instance=ExtResource("5")]
+[node name="stateMachine" parent="." index="6" unique_id=1048645275 instance=ExtResource("5")]
 initialState = NodePath("idleState")
 
-[node name="idleState" type="Node" parent="stateMachine" index="0"]
+[node name="idleState" type="Node" parent="stateMachine" index="0" unique_id=299618816]
 script = ExtResource("6")
 
-[node name="walkState" type="Node" parent="stateMachine" index="1"]
+[node name="walkState" type="Node" parent="stateMachine" index="1" unique_id=1170176355]
 script = ExtResource("7")
 
-[node name="jumpState" type="Node" parent="stateMachine" index="2"]
+[node name="jumpState" type="Node" parent="stateMachine" index="2" unique_id=1258386243]
 script = ExtResource("8")
 
-[node name="attackState" type="Node" parent="stateMachine" index="3"]
+[node name="attackState" type="Node" parent="stateMachine" index="3" unique_id=1807406718]
 script = ExtResource("9")
 
-[node name="skillState" type="Node" parent="stateMachine" index="4"]
+[node name="skillState" type="Node" parent="stateMachine" index="4" unique_id=1918768498]
 script = ExtResource("10")
 
-[node name="hurtState" type="Node" parent="stateMachine" index="5"]
+[node name="hurtState" type="Node" parent="stateMachine" index="5" unique_id=1865468953]
 script = ExtResource("11")

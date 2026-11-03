@@ -1,7 +1,7 @@
-[gd_resource type="SpriteFrames" format=3]
+[gd_resource type="SpriteFrames" format=3 uid="uid://d8hj4wu1olto"]
 
-[ext_resource type="Texture2D" path="res://sprite/player/Guy_01_13x2.png" id="1"]
-[ext_resource type="Texture2D" path="res://sprite/player/Guy_107_13x3.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://85u6o4qetp5g" path="res://sprite/player/Guy_01_13x2.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://cdudbwkiqm08a" path="res://sprite/player/Guy_107_13x3.png" id="2"]
 
 [sub_resource type="AtlasTexture" id="G2_0"]
 atlas = ExtResource("2")
@@ -95,9 +95,9 @@ region = Rect2(351, 0, 39, 34)
 atlas = ExtResource("2")
 region = Rect2(390, 0, 39, 34)
 
-[sub_resource type="AtlasTexture" id="G1_8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_yv6gh"]
 atlas = ExtResource("1")
-region = Rect2(312, 0, 39, 34)
+region = Rect2(468, 0, 39, 34)
 
 [sub_resource type="AtlasTexture" id="G1_6"]
 atlas = ExtResource("1")
@@ -160,125 +160,236 @@ atlas = ExtResource("1")
 region = Rect2(195, 0, 39, 34)
 
 [resource]
-animations = [
-{
-"frames": [SubResource("G2_0"), SubResource("G2_1")],
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("G2_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("G2_1")
+}],
 "loop": 0,
 "name": &"act1",
 "speed": 12.0
-},
-{
-"frames": [SubResource("G2_2"), SubResource("G2_3")],
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("G2_2")
+}, {
+"duration": 1.0,
+"texture": SubResource("G2_3")
+}],
 "loop": 0,
 "name": &"act2",
 "speed": 12.0
-},
-{
-"frames": [SubResource("G2_4"), SubResource("G2_5")],
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("G2_4")
+}, {
+"duration": 1.0,
+"texture": SubResource("G2_5")
+}],
 "loop": 0,
 "name": &"act3",
 "speed": 12.0
-},
-{
-"frames": [SubResource("G2_26"), SubResource("G2_27"), SubResource("G2_30")],
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("G2_26")
+}, {
+"duration": 1.0,
+"texture": SubResource("G2_27")
+}, {
+"duration": 1.0,
+"texture": SubResource("G2_30")
+}],
 "loop": 0,
 "name": &"act4",
 "speed": 12.0
-},
-{
-"frames": [SubResource("G2_16"), SubResource("G2_17"), SubResource("G2_18")],
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("G2_16")
+}, {
+"duration": 1.0,
+"texture": SubResource("G2_17")
+}, {
+"duration": 1.0,
+"texture": SubResource("G2_18")
+}],
 "loop": 0,
 "name": &"act5",
 "speed": 12.0
-},
-{
-"frames": [SubResource("G2_20"), SubResource("G2_21"), SubResource("G2_22")],
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("G2_20")
+}, {
+"duration": 1.0,
+"texture": SubResource("G2_21")
+}, {
+"duration": 1.0,
+"texture": SubResource("G2_22")
+}],
 "loop": 0,
 "name": &"act7",
 "speed": 12.0
-},
-{
-"frames": [SubResource("G1_0"), SubResource("G1_1")],
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("G1_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("G1_1")
+}],
 "loop": 1,
 "name": &"default",
 "speed": 6.0
-},
-{
-"frames": [SubResource("G1_13"), SubResource("G1_14"), SubResource("G1_15")],
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("G1_13")
+}, {
+"duration": 1.0,
+"texture": SubResource("G1_14")
+}, {
+"duration": 1.0,
+"texture": SubResource("G1_15")
+}],
 "loop": 1,
 "name": &"down",
 "speed": 12.0
-},
-{
-"frames": [SubResource("G1_7")],
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("G1_7")
+}],
 "loop": 1,
 "name": &"fall",
 "speed": 12.0
-},
-{
-"frames": [SubResource("G2_9"), SubResource("G2_10")],
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("G2_9")
+}, {
+"duration": 1.0,
+"texture": SubResource("G2_10")
+}],
 "loop": 1,
 "name": &"grap",
 "speed": 12.0
-},
-{
-"frames": [SubResource("G1_8")],
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yv6gh")
+}],
 "loop": 0,
 "name": &"hurt",
 "speed": 4.0
-},
-{
-"frames": [SubResource("G1_6")],
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("G1_6")
+}],
 "loop": 1,
 "name": &"jump",
 "speed": 12.0
-},
-{
-"frames": [SubResource("G2_13"), SubResource("G2_14")],
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("G2_13")
+}, {
+"duration": 1.0,
+"texture": SubResource("G2_14")
+}],
 "loop": 0,
 "name": &"jumpAttack",
 "speed": 12.0
-},
-{
-"frames": [SubResource("G2_11"), SubResource("G2_12")],
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("G2_11")
+}, {
+"duration": 1.0,
+"texture": SubResource("G2_12")
+}],
 "loop": 0,
 "name": &"jumpKick",
 "speed": 12.0
-},
-{
-"frames": [SubResource("G1_9"), SubResource("G1_10")],
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("G1_9")
+}, {
+"duration": 1.0,
+"texture": SubResource("G1_10")
+}],
 "loop": 1,
 "name": &"jumpRoll",
 "speed": 12.0
-},
-{
-"frames": [SubResource("G1_12")],
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("G1_12")
+}],
 "loop": 1,
 "name": &"squat",
 "speed": 12.0
-},
-{
-"frames": [SubResource("G2_3"), SubResource("G2_15")],
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("G2_3")
+}, {
+"duration": 1.0,
+"texture": SubResource("G2_15")
+}],
 "loop": 0,
 "name": &"squatAttack",
 "speed": 12.0
-},
-{
-"frames": [SubResource("G2_11"), SubResource("G2_12"), SubResource("G2_13"), SubResource("G2_14")],
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("G2_11")
+}, {
+"duration": 1.0,
+"texture": SubResource("G2_12")
+}, {
+"duration": 1.0,
+"texture": SubResource("G2_13")
+}, {
+"duration": 1.0,
+"texture": SubResource("G2_14")
+}],
 "loop": 1,
 "name": &"throw",
 "speed": 12.0
-},
-{
-"frames": [SubResource("G1_16"), SubResource("G1_17")],
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("G1_16")
+}, {
+"duration": 1.0,
+"texture": SubResource("G1_17")
+}],
 "loop": 1,
 "name": &"wake",
 "speed": 12.0
-},
-{
-"frames": [SubResource("G1_2"), SubResource("G1_3"), SubResource("G1_4"), SubResource("G1_5")],
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("G1_2")
+}, {
+"duration": 1.0,
+"texture": SubResource("G1_3")
+}, {
+"duration": 1.0,
+"texture": SubResource("G1_4")
+}, {
+"duration": 1.0,
+"texture": SubResource("G1_5")
+}],
 "loop": 1,
 "name": &"walk",
 "speed": 10.0
-}
-]
+}]

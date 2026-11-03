@@ -1,26 +1,6 @@
-[gd_resource type="SpriteFrames" load_steps=19 format=3]
+[gd_resource type="SpriteFrames" format=3 uid="uid://dhilgwpn0t4gy"]
 
-[ext_resource type="Texture2D" path="res://sprite/enemy/Sprite-0010_01_14x1.png" id="1"]
-
-[sub_resource type="AtlasTexture" id="c0"]
-atlas = ExtResource("1")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="c1"]
-atlas = ExtResource("1")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="c2"]
-atlas = ExtResource("1")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="c3"]
-atlas = ExtResource("1")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="c4"]
-atlas = ExtResource("1")
-region = Rect2(128, 0, 32, 32)
+[ext_resource type="Texture2D" uid="uid://bhq0dy75dc635" path="res://sprite/enemy/Sprite-0010_01_14x1.png" id="1"]
 
 [sub_resource type="AtlasTexture" id="c5"]
 atlas = ExtResource("1")
@@ -34,9 +14,13 @@ region = Rect2(192, 0, 32, 32)
 atlas = ExtResource("1")
 region = Rect2(224, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="c8"]
+[sub_resource type="AtlasTexture" id="c0"]
 atlas = ExtResource("1")
-region = Rect2(256, 0, 32, 32)
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="c1"]
+atlas = ExtResource("1")
+region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="c9"]
 atlas = ExtResource("1")
@@ -46,12 +30,42 @@ region = Rect2(288, 0, 32, 32)
 atlas = ExtResource("1")
 region = Rect2(320, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="c8"]
+atlas = ExtResource("1")
+region = Rect2(256, 0, 32, 32)
+
 [sub_resource type="AtlasTexture" id="c12"]
 atlas = ExtResource("1")
 region = Rect2(384, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="c2"]
+atlas = ExtResource("1")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="c3"]
+atlas = ExtResource("1")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="c4"]
+atlas = ExtResource("1")
+region = Rect2(128, 0, 32, 32)
+
 [resource]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("c5")
+}, {
+"duration": 1.0,
+"texture": SubResource("c6")
+}, {
+"duration": 1.0,
+"texture": SubResource("c7")
+}],
+"loop": 0,
+"name": &"act1",
+"speed": 12.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("c0")
@@ -61,6 +75,28 @@ animations = [{
 }],
 "loop": 1,
 "name": &"default",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("c9")
+}, {
+"duration": 1.0,
+"texture": SubResource("c10")
+}],
+"loop": 0,
+"name": &"down",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("c8")
+}, {
+"duration": 1.0,
+"texture": SubResource("c12")
+}],
+"loop": 0,
+"name": &"hurt",
 "speed": 6.0
 }, {
 "frames": [{
@@ -79,40 +115,4 @@ animations = [{
 "loop": 1,
 "name": &"walk",
 "speed": 8.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("c5")
-}, {
-"duration": 1.0,
-"texture": SubResource("c6")
-}, {
-"duration": 1.0,
-"texture": SubResource("c7")
-}],
-"loop": 0,
-"name": &"act1",
-"speed": 12.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("c8")
-}, {
-"duration": 1.0,
-"texture": SubResource("c12")
-}],
-"loop": 0,
-"name": &"hurt",
-"speed": 6.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("c9")
-}, {
-"duration": 1.0,
-"texture": SubResource("c10")
-}],
-"loop": 0,
-"name": &"down",
-"speed": 6.0
 }]

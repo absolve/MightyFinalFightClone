@@ -1,12 +1,12 @@
-[gd_resource type="SpriteFrames" load_steps=47 format=3]
+[gd_resource type="SpriteFrames" format=3 uid="uid://dvmfnrvyp23qx"]
 
-[ext_resource type="Texture2D" path="res://sprite/player/Cody_126_8x1.png" id="t1"]
-[ext_resource type="Texture2D" path="res://sprite/player/Cody_216_4x1.png" id="t2"]
-[ext_resource type="Texture2D" path="res://sprite/player/Cody_254_6x1.png" id="t3"]
-[ext_resource type="Texture2D" path="res://sprite/player/Cody_4_6x1.png" id="t4"]
-[ext_resource type="Texture2D" path="res://sprite/player/Cody_49_5x1.png" id="t5"]
-[ext_resource type="Texture2D" path="res://sprite/player/Cody_177_6x1.png" id="t6"]
-[ext_resource type="Texture2D" path="res://sprite/player/Cody_90_5x1.png" id="t7"]
+[ext_resource type="Texture2D" uid="uid://24d3ci8o2hcu" path="res://sprite/player/Cody_126_8x1.png" id="t1"]
+[ext_resource type="Texture2D" uid="uid://b4skjshs0x6e0" path="res://sprite/player/Cody_216_4x1.png" id="t2"]
+[ext_resource type="Texture2D" uid="uid://d357h2dsakir0" path="res://sprite/player/Cody_254_6x1.png" id="t3"]
+[ext_resource type="Texture2D" uid="uid://bxkpovxrjsnpd" path="res://sprite/player/Cody_4_6x1.png" id="t4"]
+[ext_resource type="Texture2D" uid="uid://bwy6v7xrfb1o3" path="res://sprite/player/Cody_49_5x1.png" id="t5"]
+[ext_resource type="Texture2D" uid="uid://b25cborw7c2dh" path="res://sprite/player/Cody_177_6x1.png" id="t6"]
+[ext_resource type="Texture2D" uid="uid://bw0m4uwwluvgi" path="res://sprite/player/Cody_90_5x1.png" id="t7"]
 
 [sub_resource type="AtlasTexture" id="a0"]
 atlas = ExtResource("t1")
@@ -165,8 +165,7 @@ atlas = ExtResource("t4")
 region = Rect2(240, 0, 48, 48)
 
 [resource]
-animations = [
-{
+animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("a0")
@@ -177,8 +176,7 @@ animations = [
 "loop": 0,
 "name": &"act1",
 "speed": 5.0
-},
-{
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("a2")
@@ -189,8 +187,7 @@ animations = [
 "loop": 0,
 "name": &"act2",
 "speed": 5.0
-},
-{
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("a4")
@@ -204,8 +201,7 @@ animations = [
 "loop": 0,
 "name": &"act3",
 "speed": 5.0
-},
-{
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("a7")
@@ -222,8 +218,7 @@ animations = [
 "loop": 1,
 "name": &"act4",
 "speed": 5.0
-},
-{
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("a11")
@@ -246,8 +241,7 @@ animations = [
 "loop": 0,
 "name": &"act5",
 "speed": 5.0
-},
-{
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("a17")
@@ -255,20 +249,17 @@ animations = [
 "loop": 0,
 "name": &"default",
 "speed": 5.0
-},
-{
+}, {
 "frames": [],
 "loop": 0,
 "name": &"down",
 "speed": 5.0
-},
-{
+}, {
 "frames": [],
 "loop": 0,
 "name": &"down2",
 "speed": 5.0
-},
-{
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("a18")
@@ -276,8 +267,7 @@ animations = [
 "loop": 1,
 "name": &"fall",
 "speed": 6.0
-},
-{
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("a19")
@@ -288,8 +278,7 @@ animations = [
 "loop": 1,
 "name": &"grap",
 "speed": 5.0
-},
-{
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("a21")
@@ -297,8 +286,7 @@ animations = [
 "loop": 0,
 "name": &"hurt",
 "speed": 5.0
-},
-{
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("a22")
@@ -306,8 +294,7 @@ animations = [
 "loop": 1,
 "name": &"jump",
 "speed": 5.0
-},
-{
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("a23")
@@ -318,8 +305,7 @@ animations = [
 "loop": 0,
 "name": &"jumpAttack",
 "speed": 12.0
-},
-{
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("a25")
@@ -330,8 +316,7 @@ animations = [
 "loop": 0,
 "name": &"jumpKick",
 "speed": 12.0
-},
-{
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("a27")
@@ -345,14 +330,12 @@ animations = [
 "loop": 1,
 "name": &"jumpRoll",
 "speed": 12.0
-},
-{
+}, {
 "frames": [],
 "loop": 0,
 "name": &"knockAway",
 "speed": 5.0
-},
-{
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("a30")
@@ -360,8 +343,7 @@ animations = [
 "loop": 1,
 "name": &"squat",
 "speed": 5.0
-},
-{
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("a31")
@@ -372,14 +354,12 @@ animations = [
 "loop": 1,
 "name": &"throw",
 "speed": 5.0
-},
-{
+}, {
 "frames": [],
 "loop": 1,
 "name": &"tumbleDown",
 "speed": 5.0
-},
-{
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("a33")
@@ -390,8 +370,7 @@ animations = [
 "loop": 1,
 "name": &"wake",
 "speed": 5.0
-},
-{
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("a35")
@@ -408,5 +387,4 @@ animations = [
 "loop": 1,
 "name": &"walk",
 "speed": 5.0
-},
-]
+}]

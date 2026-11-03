@@ -1,6 +1,7 @@
-[gd_resource type="SpriteFrames" format=3]
+[gd_resource type="SpriteFrames" format=3 uid="uid://3qhh0iwvyi4g"]
 
-[ext_resource type="Texture2D" path="res://sprite/player/Haggar_01_12x5.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://8mqo0rpjasp8" path="res://sprite/player/Haggar_01_12x5.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://bni4nyjr1pdn3" path="res://sprite/player/Haggar_145_7x1.png" id="2_al4pg"]
 
 [sub_resource type="AtlasTexture" id="H_7"]
 atlas = ExtResource("1")
@@ -70,9 +71,9 @@ region = Rect2(82, 42, 41, 42)
 atlas = ExtResource("1")
 region = Rect2(123, 42, 41, 42)
 
-[sub_resource type="AtlasTexture" id="H_41"]
-atlas = ExtResource("1")
-region = Rect2(205, 126, 41, 42)
+[sub_resource type="AtlasTexture" id="AtlasTexture_rw1l0"]
+atlas = ExtResource("2_al4pg")
+region = Rect2(48, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="H_25"]
 atlas = ExtResource("1")
@@ -82,6 +83,18 @@ region = Rect2(41, 84, 41, 42)
 atlas = ExtResource("1")
 region = Rect2(328, 42, 41, 42)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_2nu47"]
+atlas = ExtResource("2_al4pg")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_al4pg"]
+atlas = ExtResource("2_al4pg")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="H_29"]
+atlas = ExtResource("1")
+region = Rect2(205, 84, 41, 42)
+
 [sub_resource type="AtlasTexture" id="H_39"]
 atlas = ExtResource("1")
 region = Rect2(123, 126, 41, 42)
@@ -89,10 +102,6 @@ region = Rect2(123, 126, 41, 42)
 [sub_resource type="AtlasTexture" id="H_40"]
 atlas = ExtResource("1")
 region = Rect2(164, 126, 41, 42)
-
-[sub_resource type="AtlasTexture" id="H_29"]
-atlas = ExtResource("1")
-region = Rect2(205, 84, 41, 42)
 
 [sub_resource type="AtlasTexture" id="H_16"]
 atlas = ExtResource("1")
@@ -123,125 +132,221 @@ atlas = ExtResource("1")
 region = Rect2(205, 0, 41, 42)
 
 [resource]
-animations = [
-{
-"frames": [SubResource("H_7"), SubResource("H_8")],
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("H_7")
+}, {
+"duration": 1.0,
+"texture": SubResource("H_8")
+}],
 "loop": 0,
 "name": &"act1",
 "speed": 12.0
-},
-{
-"frames": [SubResource("H_12"), SubResource("H_13")],
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("H_12")
+}, {
+"duration": 1.0,
+"texture": SubResource("H_13")
+}],
 "loop": 0,
 "name": &"act2",
 "speed": 12.0
-},
-{
-"frames": [SubResource("H_34"), SubResource("H_35")],
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("H_34")
+}, {
+"duration": 1.0,
+"texture": SubResource("H_35")
+}],
 "loop": 0,
 "name": &"act3",
 "speed": 12.0
-},
-{
-"frames": [SubResource("H_32"), SubResource("H_33"), SubResource("H_34")],
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("H_32")
+}, {
+"duration": 1.0,
+"texture": SubResource("H_33")
+}, {
+"duration": 1.0,
+"texture": SubResource("H_34")
+}],
 "loop": 0,
 "name": &"act4",
 "speed": 12.0
-},
-{
-"frames": [SubResource("H_31"), SubResource("H_26"), SubResource("H_28")],
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("H_31")
+}, {
+"duration": 1.0,
+"texture": SubResource("H_26")
+}, {
+"duration": 1.0,
+"texture": SubResource("H_28")
+}],
 "loop": 0,
 "name": &"act5",
 "speed": 12.0
-},
-{
-"frames": [SubResource("H_36"), SubResource("H_37")],
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("H_36")
+}, {
+"duration": 1.0,
+"texture": SubResource("H_37")
+}],
 "loop": 0,
 "name": &"act7",
 "speed": 12.0
-},
-{
-"frames": [SubResource("H_0"), SubResource("H_1")],
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("H_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("H_1")
+}],
 "loop": 1,
 "name": &"default",
 "speed": 6.0
-},
-{
-"frames": [SubResource("H_14"), SubResource("H_15")],
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("H_14")
+}, {
+"duration": 1.0,
+"texture": SubResource("H_15")
+}],
 "loop": 1,
 "name": &"down",
 "speed": 12.0
-},
-{
-"frames": [SubResource("H_41")],
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rw1l0")
+}],
 "loop": 1,
 "name": &"fall",
 "speed": 12.0
-},
-{
-"frames": [SubResource("H_25"), SubResource("H_26")],
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("H_25")
+}, {
+"duration": 1.0,
+"texture": SubResource("H_26")
+}],
 "loop": 1,
 "name": &"grap",
 "speed": 12.0
-},
-{
-"frames": [SubResource("H_20")],
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("H_20")
+}],
 "loop": 0,
 "name": &"hurt",
 "speed": 4.0
-},
-{
-"frames": [SubResource("H_39")],
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2nu47")
+}],
 "loop": 1,
 "name": &"jump",
 "speed": 12.0
-},
-{
-"frames": [SubResource("H_39"), SubResource("H_40")],
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_al4pg")
+}],
 "loop": 0,
 "name": &"jumpAttack",
 "speed": 12.0
-},
-{
-"frames": [SubResource("H_29"), SubResource("H_39")],
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("H_29")
+}, {
+"duration": 1.0,
+"texture": SubResource("H_39")
+}],
 "loop": 0,
 "name": &"jumpKick",
 "speed": 12.0
-},
-{
-"frames": [SubResource("H_40"), SubResource("H_39")],
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("H_40")
+}, {
+"duration": 1.0,
+"texture": SubResource("H_39")
+}],
 "loop": 1,
 "name": &"jumpRoll",
 "speed": 12.0
-},
-{
-"frames": [SubResource("H_16")],
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("H_16")
+}],
 "loop": 1,
 "name": &"squat",
 "speed": 12.0
-},
-{
-"frames": [SubResource("H_30"), SubResource("H_31")],
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("H_30")
+}, {
+"duration": 1.0,
+"texture": SubResource("H_31")
+}],
 "loop": 0,
 "name": &"squatAttack",
 "speed": 12.0
-},
-{
-"frames": [SubResource("H_29"), SubResource("H_30")],
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("H_29")
+}, {
+"duration": 1.0,
+"texture": SubResource("H_30")
+}],
 "loop": 1,
 "name": &"throw",
 "speed": 12.0
-},
-{
-"frames": [SubResource("H_17"), SubResource("H_12")],
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("H_17")
+}, {
+"duration": 1.0,
+"texture": SubResource("H_12")
+}],
 "loop": 1,
 "name": &"wake",
 "speed": 12.0
-},
-{
-"frames": [SubResource("H_2"), SubResource("H_3"), SubResource("H_4"), SubResource("H_5")],
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("H_2")
+}, {
+"duration": 1.0,
+"texture": SubResource("H_3")
+}, {
+"duration": 1.0,
+"texture": SubResource("H_4")
+}, {
+"duration": 1.0,
+"texture": SubResource("H_5")
+}],
 "loop": 1,
 "name": &"walk",
 "speed": 10.0
-}
-]
+}]

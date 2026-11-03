@@ -11,13 +11,13 @@ script = ExtResource("1_sf")
 position = Vector2(0, -2)
 shape = SubResource("Rect_body")
 
-[sub_resource type="RectangleShape2D" id="Rect_squat"]
-size = Vector2(26, 24)
+[sub_resource type="RectangleShape2D" id="Rect_down"]
+size = Vector2(34, 14)
 
-[sub_resource type="Resource" id="SF_squat"]
+[sub_resource type="Resource" id="SF_down"]
 script = ExtResource("1_sf")
-position = Vector2(0, 2)
-shape = SubResource("Rect_squat")
+position = Vector2(0, 8)
+shape = SubResource("Rect_down")
 
 [sub_resource type="RectangleShape2D" id="Rect_air"]
 size = Vector2(22, 28)
@@ -27,6 +27,13 @@ script = ExtResource("1_sf")
 position = Vector2(0, -4)
 shape = SubResource("Rect_air")
 
+[sub_resource type="RectangleShape2D" id="Rect_hurt"]
+size = Vector2(28, 34)
+
+[sub_resource type="Resource" id="SF_hurt"]
+script = ExtResource("1_sf")
+shape = SubResource("Rect_hurt")
+
 [sub_resource type="RectangleShape2D" id="Rect_roll"]
 size = Vector2(28, 22)
 
@@ -35,20 +42,13 @@ script = ExtResource("1_sf")
 position = Vector2(0, -2)
 shape = SubResource("Rect_roll")
 
-[sub_resource type="RectangleShape2D" id="Rect_hurt"]
-size = Vector2(28, 34)
+[sub_resource type="RectangleShape2D" id="Rect_squat"]
+size = Vector2(26, 24)
 
-[sub_resource type="Resource" id="SF_hurt"]
+[sub_resource type="Resource" id="SF_squat"]
 script = ExtResource("1_sf")
-shape = SubResource("Rect_hurt")
-
-[sub_resource type="RectangleShape2D" id="Rect_down"]
-size = Vector2(34, 14)
-
-[sub_resource type="Resource" id="SF_down"]
-script = ExtResource("1_sf")
-position = Vector2(0, 8)
-shape = SubResource("Rect_down")
+position = Vector2(0, 2)
+shape = SubResource("Rect_squat")
 
 [resource]
 script = ExtResource("2_sfs")
