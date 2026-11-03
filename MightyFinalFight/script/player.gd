@@ -25,6 +25,17 @@ func _ready() -> void:
 	add_to_group(GROUP)
 
 
+# 场上存活玩家：房间触发、相机取景、出口判定都要按「所有玩家」算，
+# 不能只取分组里的第一个（双人时会漏掉 2P）
+static func alivePlayers(tree: SceneTree) -> Array[FightObject]:
+	var result: Array[FightObject] = []
+	for node: Node in tree.get_nodes_in_group(GROUP):
+		var candidate: FightObject = node as FightObject
+		if candidate != null and candidate.hp > 0:
+			result.append(candidate)
+	return result
+
+
 func recordInput(event: InputEvent) -> void:
 	for actionName in RECORD_ACTIONS:
 		if event.is_action_pressed("%s_%s" % [keyMapPrefix, actionName]):

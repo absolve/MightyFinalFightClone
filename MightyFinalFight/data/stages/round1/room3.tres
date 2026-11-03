@@ -1,0 +1,24 @@
+[gd_resource type="Resource" load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://script/room_data.gd" id="1"]
+[ext_resource type="Script" path="res://script/enemy_spawn.gd" id="2"]
+[ext_resource type="PackedScene" path="res://scene/enemy/boss.tscn" id="3"]
+[ext_resource type="Texture2D" path="res://sprite/bg/Round 1-3.png" id="4"]
+
+[sub_resource type="Resource" id="s19"]
+script = ExtResource("2")
+enemyScene = ExtResource("3")
+worldPosition = Vector2(4416, 383)
+hp = 72
+delay = 1.0
+facing = -1
+
+[resource]
+script = ExtResource("1")
+title = "Round 1 - section 2 (Thrasher)"
+bounds = Rect2(4200, 340, 800, 110)
+bgTexture = ExtResource("4")
+bgPosition = Vector2(3844, 0)
+bgScale = 3.0
+spawns = Array[ExtResource("2")]([SubResource("s19")])
+isBossRoom = true

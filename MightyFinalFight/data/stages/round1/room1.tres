@@ -1,0 +1,68 @@
+[gd_resource type="Resource" load_steps=13 format=3]
+
+[ext_resource type="Script" path="res://script/room_data.gd" id="1"]
+[ext_resource type="Script" path="res://script/enemy_spawn.gd" id="2"]
+[ext_resource type="PackedScene" path="res://scene/enemy/enemy_two_p.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://scene/enemy/enemy_puncher.tscn" id="4"]
+[ext_resource type="PackedScene" path="res://scene/enemy/enemy_poison.tscn" id="5"]
+[ext_resource type="Texture2D" path="res://sprite/bg/Round 1.png" id="6"]
+
+[sub_resource type="Resource" id="s61"]
+script = ExtResource("2")
+enemyScene = ExtResource("3")
+worldPosition = Vector2(984, 383)
+hp = 48
+delay = 0.8
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("2")
+enemyScene = ExtResource("4")
+worldPosition = Vector2(1128, 426)
+hp = 40
+delay = 1.2
+
+[sub_resource type="Resource" id="s75"]
+script = ExtResource("2")
+enemyScene = ExtResource("5")
+worldPosition = Vector2(1752, 412)
+hp = 64
+trigger = 1
+triggerX = 1432.0
+
+[sub_resource type="Resource" id="s32"]
+script = ExtResource("2")
+enemyScene = ExtResource("3")
+worldPosition = Vector2(1992, 448)
+hp = 40
+trigger = 1
+triggerX = 1672.0
+enterFrom = 1
+
+[sub_resource type="Resource" id="s100"]
+script = ExtResource("2")
+enemyScene = ExtResource("3")
+worldPosition = Vector2(2520, 372)
+hp = 48
+trigger = 1
+triggerX = 2200.0
+enterFrom = 2
+
+[sub_resource type="Resource" id="s93"]
+script = ExtResource("2")
+enemyScene = ExtResource("4")
+worldPosition = Vector2(2928, 398)
+hp = 48
+trigger = 2
+aliveThreshold = 1
+delay = 0.6
+enterFrom = 2
+
+[resource]
+script = ExtResource("1")
+title = "Round 1 - section 0"
+bounds = Rect2(900, 340, 2100, 110)
+bgTexture = ExtResource("6")
+bgPosition = Vector2(0, 0)
+bgScale = 3.0
+spawns = Array[ExtResource("2")]([SubResource("s61"), SubResource("s1"), SubResource("s75"), SubResource("s32"), SubResource("s100"), SubResource("s93")])
+exitX = 2940.0

@@ -32,6 +32,8 @@ const DAMAGE_NUMBER_SCENE: PackedScene = preload("res://scene/fx/damage_number.t
 @export var combos: Array[ComboDef] = []
 # 必杀名 -> 动画名映射，如 { "skill1": "act4" }
 @export var skillAnims: Dictionary = {}
+## 本人被打时飘字的颜色：玩家场景配红色，敌人与 Boss 用默认白色
+@export var damageNumberColor: Color = Color(1, 1, 1, 1)
 
 # 朝向：1 朝右，-1 朝左；控制贴图翻转与 hitBox 偏移
 var faceDir: int = 1
@@ -230,7 +232,7 @@ func spawnDamageNumber(amount: int) -> void:
 	var damageNumber: DamageNumber = DAMAGE_NUMBER_SCENE.instantiate()
 	get_parent().add_child(damageNumber)
 	damageNumber.global_position = global_position + Vector2(randf_range(-8.0, 8.0), -30.0)
-	damageNumber.setup(amount)
+	damageNumber.setup(amount, damageNumberColor)
 
 
 func onHitBoxAreaEntered(area: Area2D) -> void:

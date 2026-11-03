@@ -1,39 +1,67 @@
 extends CanvasLayer
 class_name Hud
-## 游戏内 HUD：玩家/敌人分段血条、命数、等级与经验。
+## 游戏内 HUD：每个参战玩家一组「血条 + 命数 + LEVEL/EXP」，外加一条敌人/Boss 血条。
 ##
-## 玩家血条通过 [method bindPlayer] 绑定 [FightObject] 的 hpChanged 信号实时刷新；
-## 敌人血条（Boss 战）平时隐藏，[method showEnemyBar] 显示并跟随目标血量，
-## 目标血量归零时自动隐藏。等级/经验仅负责显示，数值规则由后续等级系统提供
-## （原作最高 LV6、特殊攻击 LV4 解锁，见 doc/原作资料.md §3）。
+## 槽位数量跟 Game.playerCount 对齐（单人时隐藏 2P 槽）；血条由 [method bindPlayers]
+## 绑定各玩家的 hpChanged 信号实时刷新，命数/等级/经验由 [method setSlotStats] 写入。
+## 等级与经验的数值规则由后续等级系统提供（原作最高 LV6，见 doc/原作资料.md §3）。
+
+const MAX_SLOTS: int = 2
 
 @export var level: int = 1
 @export var exp: int = 0
 @export var expToNext: int = 90
 
 var lives: int = 2
-var playerTarget: FightObject
 var enemyTarget: FightObject
+var slotTargets: Array[FightObject] = []
 
-@onready var playerBar: SegmentBar = $topBar/playerBar
-@onready var enemyBar: SegmentBar = $topBar/enemyBar
-@onready var enemyLabel: TextureRect = $topBar/enemyLabel
-@onready var livesLabel: Label = $topBar/livesLabel
-@onready var levelLabel: Label = $bottomBar/levelLabel
-@onready var expLabel: Label = $bottomBar/expLabel
+@onready var slotRoots: Array[Node2D] = [$topBar/slotP1, $topBar/slotP2]
+@onready var slotBars: Array[SegmentBar] = [$topBar/slotP1/playerBar, $topBar/slotP2/playerBar]
+@onready var slotLives: Array[Label] = [$topBar/slotP1/livesLabel, $topBar/slotP2/livesLabel]
+@onready var slotLevels: Array[Label] = [$bottomBar/p1LevelLabel, $bottomBar/p2LevelLabel]
+@onready var slotExps: Array[Label] = [$bottomBar/p1ExpLabel, $bottomBar/p2ExpLabel]
+@onready var enemyBar: SegmentBar = $topBar/enemySlot/enemyBar
+@onready var enemyLabel: TextureRect = $topBar/enemySlot/enemyLabel
+
+# 兼容单人写法的别名：槽位 0 就是原来的唯一玩家
+@onready var playerBar: SegmentBar = slotBars[0]
+@onready var livesLabel: Label = slotLives[0]
+@onready var levelLabel: Label = slotLevels[0]
+@onready var expLabel: Label = slotExps[0]
 
 
 func _ready() -> void:
-	setLives(lives)
-	setLevel(level)
-	setExp(exp, expToNext)
+	slotTargets.resize(MAX_SLOTS)
+	for slot: int in MAX_SLOTS:
+		setSlotStats(slot, lives, level, exp, expToNext)
+	applySlotVisibility()
 	updateEnemyBarVisible()
 
 
-func bindPlayer(playerObj: FightObject) -> void:
-	playerTarget = playerObj
-	playerObj.hpChanged.connect(onPlayerHpChanged)
-	onPlayerHpChanged(playerObj.hp)
+func activeSlotCount() -> int:
+	return clampi(Game.playerCount, 1, MAX_SLOTS)
+
+
+func applySlotVisibility() -> void:
+	for slot: int in MAX_SLOTS:
+		var shown: bool = slot < activeSlotCount()
+		slotRoots[slot].visible = shown
+		slotLevels[slot].visible = shown
+		slotExps[slot].visible = shown
+
+
+func bindPlayers(players: Array[FightObject]) -> void:
+	for slot: int in mini(players.size(), MAX_SLOTS):
+		bindPlayer(players[slot], slot)
+
+
+func bindPlayer(playerObj: FightObject, slot: int = 0) -> void:
+	if slot < 0 or slot >= MAX_SLOTS:
+		return
+	slotTargets[slot] = playerObj
+	playerObj.hpChanged.connect(onSlotHpChanged.bind(slot))
+	refreshSlotBar(slot)
 
 
 func showEnemyBar(enemyObj: FightObject) -> void:
@@ -48,26 +76,43 @@ func hideEnemyBar() -> void:
 	updateEnemyBarVisible()
 
 
+# 单人旧接口：都作用在槽位 0
 func setLives(value: int) -> void:
 	lives = value
-	livesLabel.text = "PL ×%d" % lives
+	slotLives[0].text = "PL ×%d" % value
 
 
 func setLevel(value: int) -> void:
 	level = value
-	levelLabel.text = "LEVEL %d" % level
+	slotLevels[0].text = "LEVEL %d" % value
 
 
 func setExp(current: int, needed: int) -> void:
 	exp = current
 	expToNext = needed
-	expLabel.text = "EXP %03d/%03d" % [exp, expToNext]
+	slotExps[0].text = "EXP %03d/%03d" % [current, needed]
 
 
-func onPlayerHpChanged(currentHp: int) -> void:
-	if playerTarget == null:
+func setSlotStats(slot: int, newLives: int, newLevel: int, newExp: int, newExpToNext: int) -> void:
+	if slot < 0 or slot >= MAX_SLOTS:
 		return
-	playerBar.setRatio(float(currentHp) / float(playerTarget.maxHp))
+	slotLives[slot].text = "PL ×%d" % newLives
+	slotLevels[slot].text = "LEVEL %d" % newLevel
+	slotExps[slot].text = "EXP %03d/%03d" % [newExp, newExpToNext]
+
+
+func refreshSlotBar(slot: int) -> void:
+	var target: FightObject = slotTargets[slot]
+	if target == null:
+		return
+	slotBars[slot].setRatio(float(target.hp) / float(target.maxHp))
+
+
+func onSlotHpChanged(currentHp: int, slot: int) -> void:
+	var target: FightObject = slotTargets[slot]
+	if target == null:
+		return
+	slotBars[slot].setRatio(float(currentHp) / float(target.maxHp))
 
 
 func onEnemyHpChanged(currentHp: int) -> void:

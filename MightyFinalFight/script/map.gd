@@ -1,8 +1,9 @@
 extends Node2D
+class_name Map
 ## 关卡基类：背景音乐、下一关、以及本关的可活动范围分发。
 ##
-## playBounds 在 Inspector 里按关卡背景的地面区域填写（世界坐标）；
-## 开场由本类统一写给场上所有玩家，玩家移动时被钳制在该矩形内。
+## playBounds 由 [RoomManager] 按当前房间逐间写入（无房间系统时在 Inspector 里填死）；
+## 开场与换房时由本类统一发给场上所有玩家与敌人，移动时被钳在该矩形内。
 
 ## 玩家可活动范围；size 为零表示不限制
 @export var playBounds: Rect2 = Rect2()

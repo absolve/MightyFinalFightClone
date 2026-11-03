@@ -2,25 +2,19 @@
 
 [ext_resource type="PackedScene" path="res://scene/level/map.tscn" id="1"]
 [ext_resource type="Script" uid="uid://d32nr6sat6c2l" path="res://script/stage1.gd" id="2"]
-[ext_resource type="Texture2D" uid="uid://5roydaqkmhkq" path="res://sprite/bg/Round 1.png" id="3"]
-[ext_resource type="PackedScene" path="res://scene/player/cody.tscn" id="4"]
 [ext_resource type="PackedScene" path="res://scene/ui/hud.tscn" id="5"]
-[ext_resource type="PackedScene" path="res://scene/enemy/enemy_puncher.tscn" id="6"]
+[ext_resource type="Script" path="res://script/room_manager.gd" id="6"]
+[ext_resource type="Resource" path="res://data/stages/round1.tres" id="7"]
 
 [node name="stage1" unique_id=133701511 instance=ExtResource("1")]
 y_sort_enabled = true
 script = ExtResource("2")
-playBounds = Rect2(20, 340, 600, 110)
-
-[node name="bg" parent="." index="0"]
-scale = Vector2(3, 3)
-texture = ExtResource("3")
-centered = false
-
-[node name="codyP1" parent="." instance=ExtResource("4")]
-position = Vector2(220, 360)
-
-[node name="enemyPuncher" parent="." instance=ExtResource("6")]
-position = Vector2(480, 360)
+playBounds = Rect2(900, 340, 2100, 110)
 
 [node name="hud" parent="." instance=ExtResource("5")]
+
+[node name="roomManager" type="Node" parent="."]
+script = ExtResource("6")
+stageData = ExtResource("7")
+
+[node name="camera" type="Camera2D" parent="roomManager"]

@@ -1,12 +1,13 @@
-[gd_scene load_steps=11 format=3]
+[gd_scene load_steps=12 format=3]
 
 [ext_resource type="Script" path="res://script/enemy_poison.gd" id="1"]
-[ext_resource type="Script" path="res://script/stateMachine.gd" id="2"]
-[ext_resource type="Script" path="res://script/states/enemy_idle_state.gd" id="3"]
-[ext_resource type="Script" path="res://script/states/enemy_chase_state.gd" id="4"]
-[ext_resource type="Script" path="res://script/states/enemy_attack_state.gd" id="5"]
-[ext_resource type="Script" path="res://script/states/enemy_hurt_state.gd" id="6"]
-[ext_resource type="Script" path="res://script/states/enemy_down_state.gd" id="7"]
+[ext_resource type="PackedScene" uid="uid://df0d4vdj484bb" path="res://scene/base/object.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://scene/base/stateMachine.tscn" id="3"]
+[ext_resource type="Script" path="res://script/states/enemy_idle_state.gd" id="4"]
+[ext_resource type="Script" path="res://script/states/enemy_chase_state.gd" id="5"]
+[ext_resource type="Script" path="res://script/states/enemy_attack_state.gd" id="6"]
+[ext_resource type="Script" path="res://script/states/enemy_hurt_state.gd" id="7"]
+[ext_resource type="Script" path="res://script/states/enemy_down_state.gd" id="8"]
 
 [sub_resource type="RectangleShape2D" id="hurt_rect"]
 size = Vector2(20, 30)
@@ -17,7 +18,7 @@ size = Vector2(14, 16)
 [sub_resource type="RectangleShape2D" id="body_rect"]
 size = Vector2(20, 4)
 
-[node name="enemyPoison" type="CharacterBody2D"]
+[node name="object" instance=ExtResource("2")]
 script = ExtResource("1")
 hp = 40
 maxHp = 40
@@ -27,52 +28,45 @@ punchDamage = 10
 attackRange = 28.0
 depthTolerance = 2.0
 
-[node name="body" type="Node2D" parent="."]
-
-[node name="ani" type="AnimatedSprite2D" parent="body"]
-
-[node name="hurtBox" type="Area2D" parent="body"]
+[node name="hurtBox" parent="body" index="1"]
 collision_layer = 4
 collision_mask = 0
 monitoring = false
 
-[node name="shape" type="CollisionShape2D" parent="body/hurtBox"]
+[node name="shape" type="CollisionShape2D" parent="body/hurtBox" index="0"]
 position = Vector2(0, 1)
 shape = SubResource("hurt_rect")
 
-[node name="hitBox" type="Area2D" parent="body"]
+[node name="hitBox" parent="body" index="2"]
 position = Vector2(14, -4)
 collision_layer = 8
 collision_mask = 1
 monitorable = false
 
-[node name="shape" type="CollisionShape2D" parent="body/hitBox"]
+[node name="shape" type="CollisionShape2D" parent="body/hitBox" index="0"]
 shape = SubResource("hit_rect")
 
-[node name="footShape" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(0, 14)
 shape = SubResource("body_rect")
 
-[node name="player" type="AnimationPlayer" parent="."]
+[node name="hitShape" parent="." index="5"]
+handle_flip_h = false
 
-[node name="tree" type="AnimationTree" parent="."]
-anim_player = NodePath("../player")
-
-[node name="stateMachine" type="Node" parent="."]
-script = ExtResource("2")
+[node name="stateMachine" parent="." index="6" instance=ExtResource("3")]
 initialState = NodePath("idleState")
 
-[node name="idleState" type="Node" parent="stateMachine"]
-script = ExtResource("3")
-
-[node name="chaseState" type="Node" parent="stateMachine"]
+[node name="idleState" type="Node" parent="stateMachine" index="0"]
 script = ExtResource("4")
 
-[node name="attackState" type="Node" parent="stateMachine"]
+[node name="chaseState" type="Node" parent="stateMachine" index="1"]
 script = ExtResource("5")
 
-[node name="hurtState" type="Node" parent="stateMachine"]
+[node name="attackState" type="Node" parent="stateMachine" index="2"]
 script = ExtResource("6")
 
-[node name="downState" type="Node" parent="stateMachine"]
+[node name="hurtState" type="Node" parent="stateMachine" index="3"]
 script = ExtResource("7")
+
+[node name="downState" type="Node" parent="stateMachine" index="4"]
+script = ExtResource("8")

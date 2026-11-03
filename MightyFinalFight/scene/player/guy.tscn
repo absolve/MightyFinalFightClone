@@ -1,22 +1,23 @@
-[gd_scene load_steps=20 format=3]
+[gd_scene load_steps=22 format=3]
 
 [ext_resource type="Script" uid="uid://b3x2mrljir4t8" path="res://script/guy.gd" id="1"]
-[ext_resource type="SpriteFrames" path="res://data/sprites/guy_frames.tres" id="2"]
-[ext_resource type="Script" uid="uid://v51hjiuhcw8" path="res://script/combo_def.gd" id="3"]
-[ext_resource type="Script" uid="uid://ci35d7c2o3owe" path="res://script/stateMachine.gd" id="4"]
-[ext_resource type="Script" uid="uid://2j2jbf07a5y6" path="res://script/states/idle_state.gd" id="5"]
-[ext_resource type="Script" uid="uid://bhchmfalnn0mu" path="res://script/states/walk_state.gd" id="6"]
-[ext_resource type="Script" uid="uid://7x1e14lhkpgq" path="res://script/states/jump_state.gd" id="7"]
-[ext_resource type="Script" uid="uid://jduowvg5qr0i" path="res://script/states/attack_state.gd" id="8"]
-[ext_resource type="Script" uid="uid://30ggmyt6s3cr" path="res://script/states/skill_state.gd" id="9"]
-[ext_resource type="Script" uid="uid://bw57f43npv0i8" path="res://script/states/hurt_state.gd" id="10"]
-[ext_resource type="Resource" path="res://data/combos/cody/skill1_left.tres" id="11"]
-[ext_resource type="Resource" path="res://data/combos/cody/skill1_right.tres" id="12"]
-[ext_resource type="Resource" path="res://data/combos/cody/skill2_leftright.tres" id="13"]
-[ext_resource type="Resource" path="res://data/combos/cody/skill2_rightleft.tres" id="14"]
-[ext_resource type="Resource" path="res://data/combos/cody/skill3.tres" id="15"]
-[ext_resource type="AnimationLibrary" path="res://data/anims/guy_library.tres" id="16"]
-[ext_resource type="AnimationNodeStateMachine" path="res://data/anims/guy_state_machine.tres" id="17"]
+[ext_resource type="PackedScene" uid="uid://df0d4vdj484bb" path="res://scene/base/object.tscn" id="2"]
+[ext_resource type="SpriteFrames" path="res://data/sprites/guy_frames.tres" id="3"]
+[ext_resource type="Script" uid="uid://v51hjiuhcw8" path="res://script/combo_def.gd" id="4"]
+[ext_resource type="PackedScene" path="res://scene/base/stateMachine.tscn" id="5"]
+[ext_resource type="Script" uid="uid://2j2jbf07a5y6" path="res://script/states/idle_state.gd" id="6"]
+[ext_resource type="Script" uid="uid://bhchmfalnn0mu" path="res://script/states/walk_state.gd" id="7"]
+[ext_resource type="Script" uid="uid://7x1e14lhkpgq" path="res://script/states/jump_state.gd" id="8"]
+[ext_resource type="Script" uid="uid://jduowvg5qr0i" path="res://script/states/attack_state.gd" id="9"]
+[ext_resource type="Script" uid="uid://30ggmyt6s3cr" path="res://script/states/skill_state.gd" id="10"]
+[ext_resource type="Script" uid="uid://bw57f43npv0i8" path="res://script/states/hurt_state.gd" id="11"]
+[ext_resource type="Resource" path="res://data/combos/cody/skill1_left.tres" id="12"]
+[ext_resource type="Resource" path="res://data/combos/cody/skill1_right.tres" id="13"]
+[ext_resource type="Resource" path="res://data/combos/cody/skill2_leftright.tres" id="14"]
+[ext_resource type="Resource" path="res://data/combos/cody/skill2_rightleft.tres" id="15"]
+[ext_resource type="Resource" path="res://data/combos/cody/skill3.tres" id="16"]
+[ext_resource type="AnimationLibrary" path="res://data/anims/guy_library.tres" id="17"]
+[ext_resource type="AnimationNodeStateMachine" path="res://data/anims/guy_state_machine.tres" id="18"]
 
 [sub_resource type="RectangleShape2D" id="hurt_rect"]
 size = Vector2(24, 34)
@@ -27,10 +28,11 @@ size = Vector2(16, 14)
 [sub_resource type="RectangleShape2D" id="body_rect"]
 size = Vector2(16, 4)
 
-[node name="guy" type="CharacterBody2D"]
+[node name="object" instance=ExtResource("2")]
 script = ExtResource("1")
 hp = 48
 maxHp = 48
+damageNumberColor = Color(1, 0.2, 0.2, 1)
 attack = 1
 speed = 88.0
 jumpSpeed = 300.0
@@ -38,61 +40,60 @@ gravity = 1008.0
 comboDamage = Array[int]([1, 5, 3])
 squatDamage = 1
 airAttackDamage = 5
-combos = Array[ExtResource("3")]([ExtResource("11"), ExtResource("12"), ExtResource("13"), ExtResource("14"), ExtResource("15")])
+combos = Array[ExtResource("4")]([ExtResource("12"), ExtResource("13"), ExtResource("14"), ExtResource("15"), ExtResource("16")])
 skillAnims = { "skill1": "act5", "skill2": "act4", "skill3": "act7" }
 
-[node name="body" type="Node2D" parent="."]
+[node name="ani" parent="body" index="0"]
+sprite_frames = ExtResource("3")
 
-[node name="ani" type="AnimatedSprite2D" parent="body"]
-sprite_frames = ExtResource("2")
-
-[node name="hurtBox" type="Area2D" parent="body"]
+[node name="hurtBox" parent="body" index="1"]
 collision_layer = 1
 collision_mask = 0
 monitoring = false
 
-[node name="shape" type="CollisionShape2D" parent="body/hurtBox"]
+[node name="shape" type="CollisionShape2D" parent="body/hurtBox" index="0"]
 position = Vector2(0, 0)
 shape = SubResource("hurt_rect")
 
-[node name="hitBox" type="Area2D" parent="body"]
+[node name="hitBox" parent="body" index="2"]
 position = Vector2(22, -8)
 collision_layer = 2
 collision_mask = 4
 monitorable = false
 
-[node name="shape" type="CollisionShape2D" parent="body/hitBox"]
+[node name="shape" type="CollisionShape2D" parent="body/hitBox" index="0"]
 shape = SubResource("hit_rect")
 
-[node name="footShape" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(0, 12)
 shape = SubResource("body_rect")
 
-[node name="player" type="AnimationPlayer" parent="."]
-libraries/ = ExtResource("16")
+[node name="player" parent="." index="2"]
+libraries/ = ExtResource("17")
 
-[node name="tree" type="AnimationTree" parent="."]
-tree_root = ExtResource("17")
-anim_player = NodePath("../player")
+[node name="tree" parent="." index="3"]
+tree_root = ExtResource("18")
 
-[node name="stateMachine" type="Node" parent="."]
-script = ExtResource("4")
+[node name="hitShape" parent="." index="5"]
+handle_flip_h = false
+
+[node name="stateMachine" parent="." index="6" instance=ExtResource("5")]
 initialState = NodePath("idleState")
 
-[node name="idleState" type="Node" parent="stateMachine"]
-script = ExtResource("5")
-
-[node name="walkState" type="Node" parent="stateMachine"]
+[node name="idleState" type="Node" parent="stateMachine" index="0"]
 script = ExtResource("6")
 
-[node name="jumpState" type="Node" parent="stateMachine"]
+[node name="walkState" type="Node" parent="stateMachine" index="1"]
 script = ExtResource("7")
 
-[node name="attackState" type="Node" parent="stateMachine"]
+[node name="jumpState" type="Node" parent="stateMachine" index="2"]
 script = ExtResource("8")
 
-[node name="skillState" type="Node" parent="stateMachine"]
+[node name="attackState" type="Node" parent="stateMachine" index="3"]
 script = ExtResource("9")
 
-[node name="hurtState" type="Node" parent="stateMachine"]
+[node name="skillState" type="Node" parent="stateMachine" index="4"]
 script = ExtResource("10")
+
+[node name="hurtState" type="Node" parent="stateMachine" index="5"]
+script = ExtResource("11")

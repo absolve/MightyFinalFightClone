@@ -1,0 +1,35 @@
+[gd_resource type="Resource" load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://script/room_data.gd" id="1"]
+[ext_resource type="Script" path="res://script/enemy_spawn.gd" id="2"]
+[ext_resource type="PackedScene" path="res://scene/enemy/enemy_el_gado.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://scene/enemy/enemy_puncher.tscn" id="4"]
+[ext_resource type="Texture2D" path="res://sprite/bg/Round 1-2.png" id="5"]
+
+[sub_resource type="Resource" id="s77"]
+script = ExtResource("2")
+enemyScene = ExtResource("3")
+worldPosition = Vector2(3756, 383)
+hp = 104
+delay = 0.3
+enterFrom = 2
+
+[sub_resource type="Resource" id="s55"]
+script = ExtResource("2")
+enemyScene = ExtResource("4")
+worldPosition = Vector2(3900, 354)
+hp = 40
+trigger = 2
+aliveThreshold = 1
+delay = 0.8
+enterFrom = 2
+
+[resource]
+script = ExtResource("1")
+title = "Round 1 - section 1"
+bounds = Rect2(3000, 340, 1200, 110)
+bgTexture = ExtResource("5")
+bgPosition = Vector2(1860, 0)
+bgScale = 3.0
+spawns = Array[ExtResource("2")]([SubResource("s77"), SubResource("s55")])
+exitX = 4140.0

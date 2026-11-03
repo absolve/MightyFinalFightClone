@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://script/stage_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+title = "Round 1"
+roomPaths = Array[String]([
+"res://data/stages/round1/room1.tres",
+"res://data/stages/round1/room2.tres",
+"res://data/stages/round1/room3.tres"
+])
