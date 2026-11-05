@@ -1,12 +1,12 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://dvmfnrvyp23qx"]
 
-[ext_resource type="Texture2D" uid="uid://24d3ci8o2hcu" path="res://sprite/player/Cody_126_8x1.png" id="t1"]
-[ext_resource type="Texture2D" uid="uid://b4skjshs0x6e0" path="res://sprite/player/Cody_216_4x1.png" id="t2"]
-[ext_resource type="Texture2D" uid="uid://d357h2dsakir0" path="res://sprite/player/Cody_254_6x1.png" id="t3"]
-[ext_resource type="Texture2D" uid="uid://bxkpovxrjsnpd" path="res://sprite/player/Cody_4_6x1.png" id="t4"]
-[ext_resource type="Texture2D" uid="uid://bwy6v7xrfb1o3" path="res://sprite/player/Cody_49_5x1.png" id="t5"]
-[ext_resource type="Texture2D" uid="uid://b25cborw7c2dh" path="res://sprite/player/Cody_177_6x1.png" id="t6"]
-[ext_resource type="Texture2D" uid="uid://bw0m4uwwluvgi" path="res://sprite/player/Cody_90_5x1.png" id="t7"]
+[ext_resource type="Texture2D" path="res://sprite/player/Cody_126_8x1.png" id="t1"]
+[ext_resource type="Texture2D" path="res://sprite/player/Cody_216_4x1.png" id="t2"]
+[ext_resource type="Texture2D" path="res://sprite/player/Cody_254_6x1.png" id="t3"]
+[ext_resource type="Texture2D" path="res://sprite/player/Cody_4_6x1.png" id="t4"]
+[ext_resource type="Texture2D" path="res://sprite/player/Cody_49_5x1.png" id="t5"]
+[ext_resource type="Texture2D" path="res://sprite/player/Cody_177_6x1.png" id="t6"]
+[ext_resource type="Texture2D" path="res://sprite/player/Cody_90_5x1.png" id="t7"]
 
 [sub_resource type="AtlasTexture" id="a0"]
 atlas = ExtResource("t1")
@@ -255,11 +255,6 @@ animations = [{
 "name": &"down",
 "speed": 5.0
 }, {
-"frames": [],
-"loop": 0,
-"name": &"down2",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("a18")
@@ -331,11 +326,6 @@ animations = [{
 "name": &"jumpRoll",
 "speed": 12.0
 }, {
-"frames": [],
-"loop": 0,
-"name": &"knockAway",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("a30")
@@ -353,11 +343,6 @@ animations = [{
 }],
 "loop": 1,
 "name": &"throw",
-"speed": 5.0
-}, {
-"frames": [],
-"loop": 1,
-"name": &"tumbleDown",
 "speed": 5.0
 }, {
 "frames": [{

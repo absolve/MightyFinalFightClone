@@ -13,11 +13,11 @@ const CARD_GAP: float = 26.0
 const PORTRAIT_SCALE: float = 2.0
 const CURSOR_COLORS: Array[Color] = [Color(1, 0.85, 0.2, 1), Color(0.35, 0.8, 1, 1)]
 
-# 头像取各角色第一条帧条的首帧（统一 48x48 画幅，与关卡内一致）
+# 头像用各角色的 48x48 立绘（sprite/player/<角色>_07.png），与关卡内帧条分开
 const CARDS: Array[Dictionary] = [
-	{"texture": "res://sprite/player/Cody_4_6x1.png", "region": Rect2(0, 0, 48, 48)},
-	{"texture": "res://sprite/player/Guy_9_6x1.png", "region": Rect2(0, 0, 48, 48)},
-	{"texture": "res://sprite/player/Haggar_2_6x1.png", "region": Rect2(0, 0, 48, 48)},
+	{"texture": "res://sprite/player/Cody_07.png", "region": Rect2(0, 0, 48, 48)},
+	{"texture": "res://sprite/player/Guy_07.png", "region": Rect2(0, 0, 48, 48)},
+	{"texture": "res://sprite/player/Haggar_07.png", "region": Rect2(0, 0, 48, 48)},
 ]
 
 const SLOT_ACTIONS: Array[Dictionary] = [

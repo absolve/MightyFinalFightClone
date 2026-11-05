@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ShapeFrames2D" format=3 uid="uid://qsdws04k8nb6"]
 
-[ext_resource type="Script" uid="uid://c4le8h5gfqmqc" path="res://addons/goutte.animated_shape_2d/shape_frame_2d.gd" id="1_sf"]
-[ext_resource type="Script" uid="uid://b8jnlametnv51" path="res://addons/goutte.animated_shape_2d/shape_frames_2d.gd" id="2_sfs"]
+[ext_resource type="Script" path="res://addons/goutte.animated_shape_2d/shape_frame_2d.gd" id="1_sf"]
+[ext_resource type="Script" path="res://addons/goutte.animated_shape_2d/shape_frames_2d.gd" id="2_sfs"]
 
 [sub_resource type="RectangleShape2D" id="Rect_body"]
 size = Vector2(26, 40)
@@ -60,7 +60,6 @@ data = {
 &"act5": [SubResource("SF_body"), SubResource("SF_body"), SubResource("SF_body"), SubResource("SF_body"), SubResource("SF_body"), SubResource("SF_body")],
 &"default": [SubResource("SF_body")],
 &"down": [SubResource("SF_down")],
-&"down2": [SubResource("SF_down")],
 &"fall": [SubResource("SF_air")],
 &"grap": [SubResource("SF_body"), SubResource("SF_body")],
 &"hurt": [SubResource("SF_hurt")],
@@ -68,10 +67,8 @@ data = {
 &"jumpAttack": [SubResource("SF_air"), SubResource("SF_air")],
 &"jumpKick": [SubResource("SF_air"), SubResource("SF_air")],
 &"jumpRoll": [SubResource("SF_roll"), SubResource("SF_roll"), SubResource("SF_roll")],
-&"knockAway": [SubResource("SF_down")],
 &"squat": [SubResource("SF_squat")],
 &"throw": [SubResource("SF_body"), SubResource("SF_body")],
-&"tumbleDown": [SubResource("SF_down"), SubResource("SF_down"), SubResource("SF_down")],
 &"wake": [SubResource("SF_body"), SubResource("SF_body")],
 &"walk": [SubResource("SF_body"), SubResource("SF_body"), SubResource("SF_body"), SubResource("SF_body")]
 }

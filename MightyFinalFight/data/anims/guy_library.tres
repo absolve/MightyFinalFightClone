@@ -302,7 +302,6 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_6hayf"]
 resource_name = "down"
 length = 0.5
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -625,7 +624,7 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.03, 0.15),
+"times": PackedFloat32Array(0.03, 0.07),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [true],
@@ -684,7 +683,6 @@ tracks/2/keys = {
 [sub_resource type="Animation" id="Animation_juuq5"]
 resource_name = "wake"
 length = 0.25
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
